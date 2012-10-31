@@ -1,6 +1,7 @@
 # Project Shortcuts
 # -----------------
 alias jb="~/Dropbox/AppDirect/Sites/jBilling"
+alias jbui="~/Dropbox/AppDirect/Sites/jBilling UI"
 alias ad="~/Dropbox/AppDirect/Sites/AppDirect"
 
 # SSH & Tunnels
