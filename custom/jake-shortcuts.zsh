@@ -8,14 +8,15 @@ alias adcd="cd ~/Dropbox/AppDirect/Sites/Channel\ Docs"
 
 # Rails Projects
 # --------------
-alias rp="cd ~/Dropbox/rails_projects"
-alias sa="cd ~/Dropbox/rails_projects/sample_app"
+alias rp="cd ~/Dropbox/projects/rails_projects"
+alias sa="cd ~/Dropbox/projects/rails_projects/sample_app"
 
 # SSH & Tunnels
 # -------
 alias ssh-jbd="ssh appdirect@dev.jbilling.com"
 alias ssh-jbp="ssh appdirect@www.jbilling.com"
 alias ssh-add="ssh appdirect@staging.appdirect.com"
+alias ssh-ads="ssh-add"
 alias ssh-adp="ssh appdirect@info.appdirect.com"
 
 # DB Stuff
@@ -104,7 +105,7 @@ alias rdm='nocorrect rvm'
 
 # Apps
 # ----
-alias vim='mvim -v'
+# alias vim='mvim -v'
 alias tl='tmux ls'
 alias ta='tmux attach -t $*'
 alias tk='tmux kill-session -t $*'
