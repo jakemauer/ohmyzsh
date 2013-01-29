@@ -5,7 +5,7 @@ alias jb="cd ~/Dropbox/AppDirect/Sites/jBilling"
 alias jbui="cd ~/Dropbox/AppDirect/Sites/jBilling\ UI"
 alias ad="cd ~/Dropbox/AppDirect/Sites/AppDirect"
 alias adi="cd ~/Dropbox/AppDirect/Sites/AppDirect/site/adi"
-alias adcd="cd ~/Dropbox/AppDirect/Sites/Channel\ Docs"
+alias addc="cd ~/Dropbox/AppDirect/Sites/Doc\ Center"
 
 # Rails Projects
 # --------------
