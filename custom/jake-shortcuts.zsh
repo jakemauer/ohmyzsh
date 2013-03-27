@@ -1,10 +1,10 @@
 # Project Shortcuts
 # -----------------
-alias jb="cd ~/Dropbox/AppDirect/Sites/jBilling"
-alias jbui="cd ~/Dropbox/AppDirect/Sites/jBilling\ UI"
-alias ad="cd ~/Dropbox/AppDirect/Sites/AppDirect"
-alias adi="cd ~/Dropbox/AppDirect/Sites/AppDirect/site/adi"
-alias addc="cd ~/Dropbox/AppDirect/Sites/Doc\ Center"
+alias jb="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/jBilling"
+alias jbui="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/jBilling\ UI"
+alias ad="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/AppDirect"
+alias adi="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/AppDirect/site/adi"
+alias addc="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/Doc-Center"
 
 # Rails Projects
 # --------------
@@ -15,8 +15,8 @@ alias sa="cd ~/Dropbox/projects/rails_projects/sample_app"
 # -------
 alias ssh-jbd="ssh appdirect@dev.jbilling.com"
 alias ssh-jbp="ssh appdirect@www.jbilling.com"
-alias ssh-add="ssh appdirect@staging.appdirect.com"
-alias ssh-ads="ssh-add"
+alias ssh-adddev="ssh appdirect@staging.appdirect.com"
+alias ssh-ads="ssh-adddev"
 alias ssh-adp="ssh appdirect@info.appdirect.com"
 
 # DB Stuff
