@@ -6,10 +6,21 @@ alias ad="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/AppDirect"
 alias adi="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/AppDirect/site/adi"
 alias addc="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/Doc-Center"
 
+
+hdev () {
+  heroku $@ --app doc-center-dev
+}
+
+hprod () {
+  heroku $@ --app doc-center 
+}
+
 # Rails Projects
 # --------------
 alias rp="cd ~/Dropbox/projects/rails_projects"
 alias sa="cd ~/Dropbox/projects/rails_projects/sample_app"
+alias dualist="cd ~/Dropbox/projects/dualist"
+alias rg="cd ~/Dropbox/projects/rubygems"
 
 # SSH & Tunnels
 # -------
