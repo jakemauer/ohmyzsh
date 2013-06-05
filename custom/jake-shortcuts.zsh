@@ -21,6 +21,7 @@ alias rp="cd ~/Dropbox/projects/rails_projects"
 alias sa="cd ~/Dropbox/projects/rails_projects/sample_app"
 alias dualist="cd ~/Dropbox/projects/dualist"
 alias rg="cd ~/Dropbox/projects/rubygems"
+alias jm="cd ~/Dropbox/projects/jakemauer.com"
 
 # SSH & Tunnels
 # -------
