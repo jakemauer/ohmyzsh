@@ -6,7 +6,12 @@ alias jbui="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/jBilling\ UI"
 alias ad="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/AppDirect"
 alias adi="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/AppDirect/site/adi"
 alias addc="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/Doc-Center"
+alias sc="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/standing-cloud/"
+alias base="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/base/"
+alias ec="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/essential-cloud/"
+alias es="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/essential-cloud/"
 
+alias pj="cd ~/Dropbox/projects/"
 
 hdev () {
   heroku $@ --app doc-center-dev
@@ -26,11 +31,12 @@ alias jm="cd ~/Dropbox/projects/jakemauer.com"
 
 # SSH & Tunnels
 # -------
-alias ssh-jbd="ssh appdirect@dev.jbilling.com"
-alias ssh-jbp="ssh appdirect@www.jbilling.com"
-alias ssh-adddev="ssh appdirect@staging.appdirect.com"
-alias ssh-ads="ssh-adddev"
-alias ssh-adp="ssh appdirect@info.appdirect.com"
+alias ssh-jbd="ssh appdirect@54.221.224.206"
+alias ssh-jbp="ssh appdirect@107.22.227.195"
+alias ssh-jbs="ssh appdirect@54.221.252.213"
+alias ssh-ads="ssh appdirect@54.221.245.78"
+alias ssh-add="ssh appdirect@54.221.222.38"
+alias ssh-adp="ssh appdirect@107.22.226.179"
 
 # DB Stuff
 # --------
