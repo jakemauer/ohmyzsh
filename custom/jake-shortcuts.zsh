@@ -10,7 +10,7 @@ alias sc="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/standing-cloud/"
 alias base="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/base/"
 alias ec="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/essential-cloud/"
 alias es="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/essential-cloud/"
-
+alias av="cd ~/Dropbox/work/Allovue/allovue"
 alias pj="cd ~/Dropbox/projects/"
 
 hdev () {
