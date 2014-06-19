@@ -1,17 +1,18 @@
 # Project Shortcuts
 # -----------------
 
-alias jb="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/jBilling"
-alias jbui="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/jBilling\ UI"
-alias ad="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/AppDirect"
-alias adi="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/AppDirect/site/adi"
-alias addc="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/Doc-Center"
-alias sc="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/standing-cloud/"
-alias base="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/base/"
-alias ec="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/essential-cloud/"
-alias es="cd ~/Appdirect-Dropbox/Dropbox/AppDirect/Sites/essential-cloud/"
+alias jb="cd ~/.dropbox-three/Dropbox/ad/Sites/jBilling"
+alias jbui="cd ~/.dropbox-three/Dropbox/ad/Sites/jBilling\ UI"
+alias ad="cd ~/.dropbox-three/Dropbox/ad/Sites/AppDirect"
+alias adi="cd ~/.dropbox-three/Dropbox/ad/Sites/AppDirect/site/adi"
+alias addc="cd ~/.dropbox-three/Dropbox/ad/Sites/Doc-Center"
+alias sc="cd ~/.dropbox-three/Dropbox/ad/Sites/standing-cloud/"
+alias base="cd ~/.dropbox-three/Dropbox/ad/Sites/base/"
+alias ec="cd ~/.dropbox-three/Dropbox/ad/Sites/essential-cloud/"
+alias es="cd ~/.dropbox-three/Dropbox/ad/Sites/essential-cloud/"
 alias av="cd ~/Dropbox/work/Allovue/allovue"
 alias pj="cd ~/Dropbox/projects/"
+alias adps="cd /Users/jake/.dropbox-three/Dropbox/ad/Sites/adps2014"
 
 hdev () {
   heroku $@ --app doc-center-dev
@@ -95,7 +96,7 @@ alias spoton="sudo mdutil -a -i on"
 alias b='bundle exec $*'
 alias p='bundle exec powder $*'
 alias pc='bundle exec pickler $*'
-alias rdm='bundle exec rake db:migrate $*'
+# alias rdm='bundle exec rake db:migrate $*'
 #alias migrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
 
 # Git
@@ -120,7 +121,7 @@ alias prune_merged='ruby /rails/github/gg_utility/git_goggles_prune_merged.rb'
 # Nocorrect Aliases
 # -----------------
 alias grb='nocorrect grb'
-alias rdm='nocorrect rvm'
+# alias rdm='nocorrect rvm'
 
 # Apps
 # ----
