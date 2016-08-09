@@ -10,8 +10,10 @@ alias sc="cd ~/.dropbox-three/Dropbox/ad/Sites/standing-cloud/"
 alias base="cd ~/.dropbox-three/Dropbox/ad/Sites/base/"
 alias ec="cd ~/.dropbox-three/Dropbox/ad/Sites/essential-cloud/"
 alias es="cd ~/.dropbox-three/Dropbox/ad/Sites/essential-cloud/"
-alias av="cd ~/Dropbox/work/Allovue/allovue"
-alias pj="cd ~/Dropbox/projects/"
+alias av="cd /Users/jake/work/balance-rails"
+alias ab="cd /Users/jake/work/balance-ember"
+
+alias pj="cd ~/projects/"
 alias adps="cd /Users/jake/.dropbox-three/Dropbox/ad/Sites/adps2014"
 
 hdev () {
@@ -28,7 +30,8 @@ alias rp="cd ~/Dropbox/projects/rails_projects"
 alias sa="cd ~/Dropbox/projects/rails_projects/sample_app"
 alias dualist="cd ~/Dropbox/projects/dualist"
 alias rg="cd ~/Dropbox/projects/rubygems"
-alias jm="cd ~/Dropbox/projects/jakemauer.com"
+alias jm="cd ~/work/jakemauer"
+alias work="cd ~/work"
 
 # SSH & Tunnels
 # -------

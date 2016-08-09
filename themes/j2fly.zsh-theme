@@ -28,7 +28,7 @@ $(virtualenv_info)$(prompt_char) '
     # display exitcode on the right when >0
     return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-    RPROMPT='$(~/.rvm/bin/rvm-prompt)'
+    RPROMPT='%{$fg[magenta]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%} | %{$fg[green]%}node-$(nvm current)%{$reset_color%}'
 
     ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
     ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
