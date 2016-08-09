@@ -1,6 +1,5 @@
 # Project Shortcuts
 # -----------------
-
 alias jb="cd ~/.dropbox-three/Dropbox/ad/Sites/jBilling"
 alias jbui="cd ~/.dropbox-three/Dropbox/ad/Sites/jBilling\ UI"
 alias ad="cd ~/.dropbox-three/Dropbox/ad/Sites/AppDirect"
