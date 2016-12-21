@@ -32,15 +32,6 @@ alias rg="cd ~/Dropbox/projects/rubygems"
 alias jm="cd ~/work/jakemauer"
 alias work="cd ~/work"
 
-# SSH & Tunnels
-# -------
-alias ssh-jbd="ssh appdirect@54.221.224.206"
-alias ssh-jbp="ssh appdirect@107.22.227.195"
-alias ssh-jbs="ssh appdirect@54.221.252.213"
-alias ssh-ads="ssh appdirect@54.221.245.78"
-alias ssh-add="ssh appdirect@54.221.222.38"
-alias ssh-adp="ssh appdirect@107.22.226.179"
-
 # DB Stuff
 # --------
 # PG
