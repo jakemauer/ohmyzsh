@@ -1,19 +1,11 @@
 # Project Shortcuts
 # -----------------
-alias jb="cd ~/.dropbox-three/Dropbox/ad/Sites/jBilling"
-alias jbui="cd ~/.dropbox-three/Dropbox/ad/Sites/jBilling\ UI"
-alias ad="cd ~/.dropbox-three/Dropbox/ad/Sites/AppDirect"
-alias adi="cd ~/.dropbox-three/Dropbox/ad/Sites/AppDirect/site/adi"
-alias addc="cd ~/.dropbox-three/Dropbox/ad/Sites/Doc-Center"
-alias sc="cd ~/.dropbox-three/Dropbox/ad/Sites/standing-cloud/"
-alias base="cd ~/.dropbox-three/Dropbox/ad/Sites/base/"
-alias ec="cd ~/.dropbox-three/Dropbox/ad/Sites/essential-cloud/"
-alias es="cd ~/.dropbox-three/Dropbox/ad/Sites/essential-cloud/"
 alias av="cd /Users/jake/work/balance-rails"
 alias ab="cd /Users/jake/work/balance-ember"
-
+alias avdc="cd /Users/jake/work/allovue.com"
 alias pj="cd ~/projects/"
-alias adps="cd /Users/jake/.dropbox-three/Dropbox/ad/Sites/adps2014"
+alias sshrouter="ssh root@home.jakemauer.com -p 4321 -L 8080:localhost:80"
+alias sshhome="ssh jake@home.jakemauer.com -p 4444 -L 5900:127.0.0.1:5900"
 
 hdev () {
   heroku $@ --app doc-center-dev
