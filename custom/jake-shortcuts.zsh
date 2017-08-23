@@ -1,7 +1,10 @@
 # Project Shortcuts
 # -----------------
-alias av="cd /Users/jake/work/balance-rails"
-alias ab="cd /Users/jake/work/balance-ember"
+alias av="cd /Users/jake/work/balance-combined/rails-api"
+alias ab="cd /Users/jake/work/balance-combined/ember-ui"
+alias ai="cd /Users/jake/work/balance-combined/clojure-indexer"
+alias ac="cd /Users/jake/work/balance-combined"
+
 alias avdc="cd /Users/jake/work/allovue.com"
 alias pj="cd ~/projects/"
 alias sshrouter="ssh root@home.jakemauer.com -p 4321 -L 8080:192.168.1.1:80"
