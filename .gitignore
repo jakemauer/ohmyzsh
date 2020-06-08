@@ -1,10 +1,8 @@
 # custom files
-custom
-!custom/plugins/example
-!custom/example.zsh
-!custom/jake-shortcuts.zsh
-*.swp
-!custom/example.zshcache
+custom/
+
 # temp files directories
 cache/
 log/
+*.swp
+.DS_Store
