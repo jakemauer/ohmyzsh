@@ -10,6 +10,9 @@ alias pj="cd ~/projects/"
 alias sshrouter="ssh root@home.jakemauer.com -p 4321 -L 8080:192.168.1.1:80"
 alias sshhome="ssh jake@home.jakemauer.com -p 4444 -L 5900:127.0.0.1:5900"
 
+alias pt="cd ~/projects/ProperTree && ./ProperTree.command"
+alias usb="cd ~/projects/USBMap/ && ./USBMap.command"
+
 hdev () {
   heroku $@ --app doc-center-dev
 }
