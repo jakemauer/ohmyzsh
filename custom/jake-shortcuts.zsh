@@ -6,6 +6,7 @@ alias ai="cd /Users/jake/work/balance-combined/clojure-indexer"
 alias ac="cd /Users/jake/work/balance-combined"
 
 alias avdc="cd /Users/jake/work/allovue.com"
+alias at="cd /Users/jake/work/allocation-tool"
 alias pj="cd ~/projects/"
 alias sshrouter="ssh root@home.jakemauer.com -p 4321 -L 8080:192.168.1.1:80"
 alias sshhome="ssh jake@home.jakemauer.com -p 4444 -L 5900:127.0.0.1:5900"
@@ -18,7 +19,7 @@ hdev () {
 }
 
 hprod () {
-  heroku $@ --app doc-center 
+  heroku $@ --app doc-center
 }
 
 # Rails Projects
