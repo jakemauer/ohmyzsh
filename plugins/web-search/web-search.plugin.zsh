@@ -7,6 +7,7 @@ function web_search() {
   typeset -A urls
   urls=(
     $ZSH_WEB_SEARCH_ENGINES
+<<<<<<< HEAD
     google          "https://www.google.com/search?q="
     bing            "https://www.bing.com/search?q="
     brave           "https://search.brave.com/search?q="
@@ -25,6 +26,24 @@ function web_search() {
     archive         "https://web.archive.org/web/*/"
     scholar         "https://scholar.google.com/scholar?q="
     ask             "https://www.ask.com/web?q="
+=======
+    google      "https://www.google.com/search?q="
+    bing        "https://www.bing.com/search?q="
+    yahoo       "https://search.yahoo.com/search?p="
+    duckduckgo  "https://www.duckduckgo.com/?q="
+    startpage   "https://www.startpage.com/do/search?q="
+    yandex      "https://yandex.ru/yandsearch?text="
+    github      "https://github.com/search?q="
+    baidu       "https://www.baidu.com/s?wd="
+    ecosia      "https://www.ecosia.org/search?q="
+    goodreads   "https://www.goodreads.com/search?q="
+    qwant       "https://www.qwant.com/?q="
+    givero      "https://www.givero.com/search?q="
+    stackoverflow  "https://stackoverflow.com/search?q="
+    wolframalpha   "https://www.wolframalpha.com/input/?i="
+    archive     "https://web.archive.org/web/*/"
+    scholar        "https://scholar.google.com/scholar?q="
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   )
 
   # check whether the search engine is supported
@@ -37,7 +56,11 @@ function web_search() {
   if [[ $# -gt 1 ]]; then
     # build search url:
     # join arguments passed with '+', then append to search engine URL
+<<<<<<< HEAD
     url="${urls[$1]}$(omz_urlencode ${@[2,-1]})"
+=======
+    url="${urls[$1]}${(j:+:)@[2,-1]}"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   else
     # build main page url:
     # split by '/', then rejoin protocol (1) and domain (2) parts with '//'
@@ -49,7 +72,10 @@ function web_search() {
 
 
 alias bing='web_search bing'
+<<<<<<< HEAD
 alias brs='web_search brave'
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias google='web_search google'
 alias yahoo='web_search yahoo'
 alias ddg='web_search duckduckgo'
@@ -65,7 +91,10 @@ alias stackoverflow='web_search stackoverflow'
 alias wolframalpha='web_search wolframalpha'
 alias archive='web_search archive'
 alias scholar='web_search scholar'
+<<<<<<< HEAD
 alias ask='web_search ask'
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 #add your own !bang searches here
 alias wiki='web_search duckduckgo \!w'

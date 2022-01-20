@@ -41,11 +41,15 @@ fi
 
 # enable diff color if possible.
 if command diff --color /dev/null /dev/null &>/dev/null; then
+<<<<<<< HEAD
   function color-diff {
     diff --color $@
   }
   alias diff="color-diff"
   compdef _diff color-diff # compdef is already loaded by this point
+=======
+  alias diff='diff --color'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 fi
 
 setopt auto_cd

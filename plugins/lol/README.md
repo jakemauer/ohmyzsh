@@ -49,7 +49,11 @@ plugins=(... lol)
 | `violenz`    | `git rebase`                                                    |
 | `visible`    | `echo`                                                          |
 | `wtf`        | `dmesg`                                                         |
+<<<<<<< HEAD
 | `yolo`       | `git commit -m "$(curl -s https://whatthecommit.com/index.txt)"` |
+=======
+| `yolo`       | `git commit -m "$(curl -s http://whatthecommit.com/index.txt)"` |
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ## Usage Examples
 
@@ -66,6 +70,10 @@ nowai u=r,go= some.file
 # ssh root@catserver.org
 pwned root@catserver.org
 
+<<<<<<< HEAD
 # git commit -m "$(curl -s https://whatthecommit.com/index.txt)"
+=======
+# git commit -m "$(curl -s http://whatthecommit.com/index.txt)"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 yolo
 ```

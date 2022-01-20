@@ -35,11 +35,17 @@ plugins=(... common-aliases)
 | mv    | `mv -i`               | Move a file                                                                     |
 | zshrc | `${=EDITOR} ~/.zshrc` | Quickly access the ~/.zshrc file                                                |
 | dud   | `du -d 1 -h`          | Display the size of files at depth 1 in current location in human-readable form |
+<<<<<<< HEAD
 | duf\* | `du -sh`              | Display the size of files in current location in human-readable form            |
 | t     | `tail -f`             | Shorthand for tail which outputs the last part of a file                        |
 
 \* Only if the [`duf`](https://github.com/muesli/duf) command isn't installed.
 
+=======
+| duf   | `du -sh`              | Display the size of files in current location in human-readable form            |
+| t     | `tail -f`             | Shorthand for tail which outputs the last part of a file                        |
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 ### find and grep
 
 | Alias | Command                                            | Description                          |
@@ -68,15 +74,22 @@ These aliases are expanded in any position in the command line, meaning you can 
 end of the command you've typed. Examples:
 
 Quickly pipe to less:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 ```zsh
 $ ls -l /var/log L
 # will run
 $ ls -l /var/log | less
 ```
+<<<<<<< HEAD
 
 Silences stderr output:
 
+=======
+Silences stderr output:
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 ```zsh
 $ find . -type f NE
 # will run

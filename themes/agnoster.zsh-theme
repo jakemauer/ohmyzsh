@@ -116,6 +116,7 @@ prompt_git() {
       prompt_segment green $CURRENT_FG
     fi
 
+<<<<<<< HEAD
     local ahead behind
     ahead=$(git log --oneline @{upstream}.. 2>/dev/null)
     behind=$(git log --oneline ..@{upstream} 2>/dev/null)
@@ -127,6 +128,8 @@ prompt_git() {
       PL_BRANCH_CHAR=$'\u21b0'
     fi
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
       mode=" <B>"
     elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then

@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+# Contributed and SLIGHTLY modded by Matt Parnell/ilikenwf <parwok -at- gmail>
+# Created by the blogger at the URL below...I don't know where to find his/her name
+# Original found at https://www.shellperson.net/sprunge-pastebin-script/
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 sprunge() {
   if [[ "$1" = --help ]]; then
     fmt -s >&2 << EOF

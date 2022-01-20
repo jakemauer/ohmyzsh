@@ -1,6 +1,10 @@
 # Docker plugin
 
+<<<<<<< HEAD
 This plugin adds auto-completion and aliases for [docker](https://www.docker.com/).
+=======
+This plugin adds auto-completion for [docker](https://www.docker.com/).
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 To use it add `docker` to the plugins array in your zshrc file.
 
@@ -13,6 +17,7 @@ https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
 ## Settings
 
+<<<<<<< HEAD
 By default, the completion doesn't allow option-stacking, meaning if you try to complete
 `docker run -it <TAB>` it won't work, because you're _stacking_ the `-i` and `-t` options.
 
@@ -67,3 +72,24 @@ file**, but be aware of the side effects:
 | dvprune | `docker volume prune`         | Cleanup dangling volumes                                                                 |
 | dxc     | `docker container exec`       | Run a new command in a running container                                                 |
 | dxcit   | `docker container exec -it`   | Run a new command in a running container in an interactive shell                         |
+=======
+By default, the completion doesn't allow option-stacking, meaning if you try to
+complete `docker run -it <TAB>` it won't work, because you're _stacking_ the
+`-i` and `-t` options.
+
+[You can enable it](https://github.com/docker/cli/commit/b10fb43048) by **adding
+the lines below to your zshrc file**, but be aware of the side effects:
+
+> This enables Zsh to understand commands like `docker run -it
+> ubuntu`. However, by enabling this, this also makes Zsh complete
+> `docker run -u<tab>` with `docker run -uapprox` which is not valid. The
+> users have to put the space or the equal sign themselves before trying
+> to complete.
+>
+> Therefore, this behavior is disabled by default. To enable it:
+>
+> ```
+> zstyle ':completion:*:*:docker:*' option-stacking yes
+> zstyle ':completion:*:*:docker-*:*' option-stacking yes
+> ```
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

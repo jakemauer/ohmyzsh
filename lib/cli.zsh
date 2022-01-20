@@ -37,7 +37,11 @@ function _omz {
   elif (( CURRENT == 3 )); then
     case "$words[2]" in
       changelog) local -a refs
+<<<<<<< HEAD
         refs=("${(@f)$(builtin cd -q "$ZSH"; command git for-each-ref --format="%(refname:short):%(subject)" refs/heads refs/tags)}")
+=======
+        refs=("${(@f)$(cd "$ZSH"; command git for-each-ref --format="%(refname:short):%(subject)" refs/heads refs/tags)}")
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
         _describe 'command' refs ;;
       plugin) subcmds=(
         'disable:Disable plugin(s)'
@@ -105,10 +109,14 @@ function _omz {
   return 0
 }
 
+<<<<<<< HEAD
 # If run from a script, do not set the completion function
 if (( ${+functions[compdef]} )); then
   compdef _omz omz
 fi
+=======
+compdef _omz omz
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ## Utility functions
 
@@ -179,7 +187,11 @@ function _omz::changelog {
   local version=${1:-HEAD} format=${3:-"--text"}
 
   if (
+<<<<<<< HEAD
     builtin cd -q "$ZSH"
+=======
+    cd "$ZSH"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     ! command git show-ref --verify refs/heads/$version && \
     ! command git show-ref --verify refs/tags/$version && \
     ! command git rev-parse --verify "${version}^{commit}"
@@ -241,21 +253,34 @@ function _omz::plugin::disable {
 
   # Remove plugins substitution awk script
   local awk_subst_plugins="\
+<<<<<<< HEAD
   gsub(/[ \t]+(${(j:|:)dis_plugins})/, \"\") # with spaces before
   gsub(/(${(j:|:)dis_plugins})[ \t]+/, \"\") # with spaces after
+=======
+  gsub(/\s+(${(j:|:)dis_plugins})/, \"\") # with spaces before
+  gsub(/(${(j:|:)dis_plugins})\s+/, \"\") # with spaces after
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   gsub(/\((${(j:|:)dis_plugins})\)/, \"\") # without spaces (only plugin)
 "
   # Disable plugins awk script
   local awk_script="
 # if plugins=() is in oneline form, substitute disabled plugins and go to next line
+<<<<<<< HEAD
 /^[ \t]*plugins=\([^#]+\).*\$/ {
+=======
+/^\s*plugins=\([^#]+\).*\$/ {
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   $awk_subst_plugins
   print \$0
   next
 }
 
 # if plugins=() is in multiline form, enable multi flag and disable plugins if they're there
+<<<<<<< HEAD
 /^[ \t]*plugins=\(/ {
+=======
+/^\s*plugins=\(/ {
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   multi=1
   $awk_subst_plugins
   print \$0
@@ -280,10 +305,16 @@ multi == 1 && length(\$0) > 0 {
 "
 
   local zdot="${ZDOTDIR:-$HOME}"
+<<<<<<< HEAD
   local zshrc="${${:-"${zdot}/.zshrc"}:A}"
   awk "$awk_script" "$zshrc" > "$zdot/.zshrc.new" \
   && command cp -f "$zshrc" "$zdot/.zshrc.bck" \
   && command mv -f "$zdot/.zshrc.new" "$zshrc"
+=======
+  awk "$awk_script" "$zdot/.zshrc" > "$zdot/.zshrc.new" \
+  && command mv -f "$zdot/.zshrc" "$zdot/.zshrc.bck" \
+  && command mv -f "$zdot/.zshrc.new" "$zdot/.zshrc"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   # Exit if the new .zshrc file wasn't created correctly
   [[ $? -eq 0 ]] || {
@@ -293,17 +324,31 @@ multi == 1 && length(\$0) > 0 {
   }
 
   # Exit if the new .zshrc file has syntax errors
+<<<<<<< HEAD
   if ! command zsh -n "$zdot/.zshrc"; then
     _omz::log error "broken syntax in '"${zdot/#$HOME/\~}/.zshrc"'. Rolling back changes..."
     command mv -f "$zdot/.zshrc.bck" "$zshrc"
+=======
+  if ! zsh -n "$zdot/.zshrc"; then
+    _omz::log error "broken syntax in '"${zdot/#$HOME/\~}/.zshrc"'. Rolling back changes..."
+    command mv -f "$zdot/.zshrc" "$zdot/.zshrc.new"
+    command mv -f "$zdot/.zshrc.bck" "$zdot/.zshrc"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     return 1
   fi
 
   # Restart the zsh session if there were no errors
   _omz::log info "plugins disabled: ${(j:, :)dis_plugins}."
 
+<<<<<<< HEAD
   # Only reload zsh if run in an interactive session
   [[ ! -o interactive ]] || _omz::reload
+=======
+  # Old zsh versions don't have ZSH_ARGZERO
+  local zsh="${ZSH_ARGZERO:-${functrace[-1]%:*}}"
+  # Check whether to run a login shell
+  [[ "$zsh" = -* || -o login ]] && exec -l "${zsh#-}" || exec "$zsh"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 function _omz::plugin::enable {
@@ -330,14 +375,22 @@ function _omz::plugin::enable {
   # Enable plugins awk script
   local awk_script="
 # if plugins=() is in oneline form, substitute ) with new plugins and go to the next line
+<<<<<<< HEAD
 /^[ \t]*plugins=\([^#]+\).*\$/ {
+=======
+/^\s*plugins=\([^#]+\).*\$/ {
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   sub(/\)/, \" $add_plugins&\")
   print \$0
   next
 }
 
 # if plugins=() is in multiline form, enable multi flag
+<<<<<<< HEAD
 /^[ \t]*plugins=\(/ {
+=======
+/^\s*plugins=\(/ {
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   multi=1
 }
 
@@ -354,10 +407,16 @@ multi == 1 && /^[^#]*\)/ {
 "
 
   local zdot="${ZDOTDIR:-$HOME}"
+<<<<<<< HEAD
   local zshrc="${${:-"${zdot}/.zshrc"}:A}"
   awk "$awk_script" "$zshrc" > "$zdot/.zshrc.new" \
   && command cp -f "$zshrc" "$zdot/.zshrc.bck" \
   && command mv -f "$zdot/.zshrc.new" "$zshrc"
+=======
+  awk "$awk_script" "$zdot/.zshrc" > "$zdot/.zshrc.new" \
+  && command mv -f "$zdot/.zshrc" "$zdot/.zshrc.bck" \
+  && command mv -f "$zdot/.zshrc.new" "$zdot/.zshrc"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   # Exit if the new .zshrc file wasn't created correctly
   [[ $? -eq 0 ]] || {
@@ -367,17 +426,31 @@ multi == 1 && /^[^#]*\)/ {
   }
 
   # Exit if the new .zshrc file has syntax errors
+<<<<<<< HEAD
   if ! command zsh -n "$zdot/.zshrc"; then
     _omz::log error "broken syntax in '"${zdot/#$HOME/\~}/.zshrc"'. Rolling back changes..."
     command mv -f "$zdot/.zshrc.bck" "$zshrc"
+=======
+  if ! zsh -n "$zdot/.zshrc"; then
+    _omz::log error "broken syntax in '"${zdot/#$HOME/\~}/.zshrc"'. Rolling back changes..."
+    command mv -f "$zdot/.zshrc" "$zdot/.zshrc.new"
+    command mv -f "$zdot/.zshrc.bck" "$zdot/.zshrc"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     return 1
   fi
 
   # Restart the zsh session if there were no errors
   _omz::log info "plugins enabled: ${(j:, :)add_plugins}."
 
+<<<<<<< HEAD
   # Only reload zsh if run in an interactive session
   [[ ! -o interactive ]] || _omz::reload
+=======
+  # Old zsh versions don't have ZSH_ARGZERO
+  local zsh="${ZSH_ARGZERO:-${functrace[-1]%:*}}"
+  # Check whether to run a login shell
+  [[ "$zsh" = -* || -o login ]] && exec -l "${zsh#-}" || exec "$zsh"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 function _omz::plugin::info {
@@ -416,14 +489,22 @@ function _omz::plugin::list {
 
   if (( ${#custom_plugins} )); then
     print -P "%U%BCustom plugins%b%u:"
+<<<<<<< HEAD
     print -lac ${(q-)custom_plugins}
+=======
+    print -l ${(q-)custom_plugins} | column -x
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   fi
 
   if (( ${#builtin_plugins} )); then
     (( ${#custom_plugins} )) && echo # add a line of separation
 
     print -P "%U%BBuilt-in plugins%b%u:"
+<<<<<<< HEAD
     print -lac ${(q-)builtin_plugins}
+=======
+    print -l ${(q-)builtin_plugins} | column -x
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   fi
 }
 
@@ -573,6 +654,7 @@ function _omz::pr::test {
 
     # Rebase pull request branch against the current master
     _omz::log info "rebasing PR #$1..."
+<<<<<<< HEAD
     local ret gpgsign
     {
       # Back up commit.gpgsign setting: use --local to get the current repository
@@ -594,6 +676,14 @@ function _omz::pr::test {
       "") command git config --unset commit.gpgsign ;;
       *) command git config commit.gpgsign "$gpgsign" ;;
       esac
+=======
+    command git rebase master ohmyzsh/pull-$1 || {
+      command git rebase --abort &>/dev/null
+      _omz::log warn "could not rebase PR #$1 on top of master."
+      _omz::log warn "you might not see the latest stable changes."
+      _omz::log info "run \`zsh\` to test the changes."
+      return 1
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     }
 
     _omz::log info "fetch of PR #${1} successful."
@@ -674,13 +764,21 @@ function _omz::theme::list {
   # Print custom themes if there are any
   if (( ${#custom_themes} )); then
     print -P "%U%BCustom themes%b%u:"
+<<<<<<< HEAD
     print -lac ${(q-)custom_themes}
+=======
+    print -l ${(q-)custom_themes} | column -x
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     echo
   fi
 
   # Print built-in themes
   print -P "%U%BBuilt-in themes%b%u:"
+<<<<<<< HEAD
   print -lac ${(q-)builtin_themes}
+=======
+  print -l ${(q-)builtin_themes} | column -x
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 function _omz::theme::set {
@@ -699,9 +797,15 @@ function _omz::theme::set {
 
   # Enable theme in .zshrc
   local awk_script='
+<<<<<<< HEAD
 !set && /^[ \t]*ZSH_THEME=[^#]+.*$/ {
   set=1
   sub(/^[ \t]*ZSH_THEME=[^#]+.*$/, "ZSH_THEME=\"'$1'\" # set by `omz`")
+=======
+!set && /^\s*ZSH_THEME=[^#]+.*$/ {
+  set=1
+  sub(/^\s*ZSH_THEME=[^#]+.*$/, "ZSH_THEME=\"'$1'\" # set by `omz`")
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   print $0
   next
 }
@@ -715,8 +819,12 @@ END {
 '
 
   local zdot="${ZDOTDIR:-$HOME}"
+<<<<<<< HEAD
   local zshrc="${${:-"${zdot}/.zshrc"}:A}"
   awk "$awk_script" "$zshrc" > "$zdot/.zshrc.new" \
+=======
+  awk "$awk_script" "$zdot/.zshrc" > "$zdot/.zshrc.new" \
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   || {
     # Prepend ZSH_THEME= line to .zshrc if it doesn't exist
     cat <<EOF
@@ -725,8 +833,13 @@ ZSH_THEME="$1" # set by \`omz\`
 EOF
     cat "$zdot/.zshrc"
   } > "$zdot/.zshrc.new" \
+<<<<<<< HEAD
   && command cp -f "$zshrc" "$zdot/.zshrc.bck" \
   && command mv -f "$zdot/.zshrc.new" "$zshrc"
+=======
+  && command mv -f "$zdot/.zshrc" "$zdot/.zshrc.bck" \
+  && command mv -f "$zdot/.zshrc.new" "$zdot/.zshrc"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   # Exit if the new .zshrc file wasn't created correctly
   [[ $? -eq 0 ]] || {
@@ -736,17 +849,31 @@ EOF
   }
 
   # Exit if the new .zshrc file has syntax errors
+<<<<<<< HEAD
   if ! command zsh -n "$zdot/.zshrc"; then
     _omz::log error "broken syntax in '"${zdot/#$HOME/\~}/.zshrc"'. Rolling back changes..."
     command mv -f "$zdot/.zshrc.bck" "$zshrc"
+=======
+  if ! zsh -n "$zdot/.zshrc"; then
+    _omz::log error "broken syntax in '"${zdot/#$HOME/\~}/.zshrc"'. Rolling back changes..."
+    command mv -f "$zdot/.zshrc" "$zdot/.zshrc.new"
+    command mv -f "$zdot/.zshrc.bck" "$zdot/.zshrc"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     return 1
   fi
 
   # Restart the zsh session if there were no errors
   _omz::log info "'$1' theme set correctly."
 
+<<<<<<< HEAD
   # Only reload zsh if run in an interactive session
   [[ ! -o interactive ]] || _omz::reload
+=======
+  # Old zsh versions don't have ZSH_ARGZERO
+  local zsh="${ZSH_ARGZERO:-${functrace[-1]%:*}}"
+  # Check whether to run a login shell
+  [[ "$zsh" = -* || -o login ]] && exec -l "${zsh#-}" || exec "$zsh"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 function _omz::theme::use {
@@ -773,6 +900,7 @@ function _omz::theme::use {
 }
 
 function _omz::update {
+<<<<<<< HEAD
   local last_commit=$(builtin cd -q "$ZSH"; git rev-parse HEAD)
 
   # Run update script
@@ -780,6 +908,15 @@ function _omz::update {
     ZSH="$ZSH" command zsh -f "$ZSH/tools/upgrade.sh" --interactive || return $?
   else
     ZSH="$ZSH" command zsh -f "$ZSH/tools/upgrade.sh" || return $?
+=======
+  local last_commit=$(cd "$ZSH"; git rev-parse HEAD)
+
+  # Run update script
+  if [[ "$1" != --unattended ]]; then
+    ZSH="$ZSH" zsh -f "$ZSH/tools/upgrade.sh" --interactive || return $?
+  else
+    ZSH="$ZSH" zsh -f "$ZSH/tools/upgrade.sh" || return $?
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   fi
 
   # Update last updated file
@@ -789,7 +926,11 @@ function _omz::update {
   command rm -rf "$ZSH/log/update.lock"
 
   # Restart the zsh session if there were changes
+<<<<<<< HEAD
   if [[ "$1" != --unattended && "$(builtin cd -q "$ZSH"; git rev-parse HEAD)" != "$last_commit" ]]; then
+=======
+  if [[ "$1" != --unattended && "$(cd "$ZSH"; git rev-parse HEAD)" != "$last_commit" ]]; then
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     # Old zsh versions don't have ZSH_ARGZERO
     local zsh="${ZSH_ARGZERO:-${functrace[-1]%:*}}"
     # Check whether to run a login shell
@@ -799,7 +940,11 @@ function _omz::update {
 
 function _omz::version {
   (
+<<<<<<< HEAD
     builtin cd -q "$ZSH"
+=======
+    cd "$ZSH"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
     # Get the version name:
     # 1) try tag-like version

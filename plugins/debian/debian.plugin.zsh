@@ -26,7 +26,11 @@ alias age='apt-get'
 alias api='aptitude'
 
 # Some self-explanatory aliases
+<<<<<<< HEAD
 alias acse="apt-cache search"
+=======
+alias acs="apt-cache search"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias aps='aptitude search'
 alias as="aptitude -F '* %p -> %d \n(%v/%V)' --no-gui --disable-columns search"
 
@@ -51,10 +55,18 @@ if [[ $use_sudo -eq 1 ]]; then
     alias au="sudo $apt_pref $apt_upgr"
     alias ai="sudo $apt_pref install"
     # Install all packages given on the command line while using only the first word of each line:
+<<<<<<< HEAD
     # acse ... | ail
 
     alias ail="sed -e 's/  */ /g' -e 's/ *//' | cut -s -d ' ' -f 1 | xargs sudo $apt_pref install"
     alias ap="sudo $apt_pref purge"
+=======
+    # acs ... | ail
+
+    alias ail="sed -e 's/  */ /g' -e 's/ *//' | cut -s -d ' ' -f 1 | xargs sudo $apt_pref install"
+    alias ap="sudo $apt_pref purge"
+    alias ar="sudo $apt_pref remove"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     alias aar="sudo $apt_pref autoremove"
 
     # apt-get only
@@ -88,17 +100,34 @@ else
     alias afu="su -lc '$apt-file update'"
     alias au="su -lc '$apt_pref $apt_upgr' root"
     function ai() {
+<<<<<<< HEAD
         cmd="su -lc '$apt_pref install $@' root"
+=======
+        cmd="su -lc 'aptitude -P install $@' root"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
         print "$cmd"
         eval "$cmd"
     }
     function ap() {
+<<<<<<< HEAD
         cmd="su -lc '$apt_pref purge $@' root"
+=======
+        cmd="su -lc '$apt_pref -P purge $@' root"
+        print "$cmd"
+        eval "$cmd"
+    }
+    function ar() {
+        cmd="su -lc '$apt_pref -P remove $@' root"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
         print "$cmd"
         eval "$cmd"
     }
     function aar() {
+<<<<<<< HEAD
         cmd="su -lc '$apt_pref autoremove $@' root"
+=======
+        cmd="su -lc '$apt_pref -P autoremove $@' root"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
         print "$cmd"
         eval "$cmd"
     }
@@ -141,6 +170,10 @@ apt_pref_compdef au  "$apt_upgr"
 apt_pref_compdef ai  "install"
 apt_pref_compdef ail "install"
 apt_pref_compdef ap  "purge"
+<<<<<<< HEAD
+=======
+apt_pref_compdef ar  "remove"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 apt_pref_compdef aar  "autoremove"
 apt_pref_compdef ads "dselect-upgrade"
 

@@ -22,6 +22,7 @@ the next time you autocomplete `pip install`.
 
 | Alias    | Description                                   |
 | :------- | :-------------------------------------------- |
+<<<<<<< HEAD
 | pipi     | Install packages                              |
 | pipig    | Install package from GitHub repository        |
 | pipigb   | Install package from GitHub branch            |
@@ -30,6 +31,8 @@ the next time you autocomplete `pip install`.
 | pipun    | Uninstall packages                            |
 | pipgi    | Grep through installed packages               |
 | piplo    | List outdated packages                        |
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 | pipreq   | Create requirements file                      |
 | pipir    | Install packages from `requirements.txt` file |
 | pipupall | Update all installed packages                 |

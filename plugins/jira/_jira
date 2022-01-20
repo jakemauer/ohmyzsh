@@ -4,7 +4,10 @@
 local -a _1st_arguments
 _1st_arguments=(
   'new:create a new issue'
+<<<<<<< HEAD
   'mine:open my issues'
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   'dashboard:open the dashboard'
   'tempo:open the tempo'
   'reported:search for issues reported by a user'

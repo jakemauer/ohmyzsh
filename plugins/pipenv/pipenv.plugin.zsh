@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 if (( ! $+commands[pipenv] )); then
   return
 fi
@@ -11,6 +12,13 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_pipenv" ]]; then
 fi
 
 _PIPENV_COMPLETE=zsh_source pipenv >| "$ZSH_CACHE_DIR/completions/_pipenv" &|
+=======
+# Pipenv completion
+_pipenv() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _PIPENV_COMPLETE=complete-zsh pipenv)
+}
+compdef _pipenv pipenv
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 # Automatic pipenv shell activation/deactivation
 _togglePipenvShell() {

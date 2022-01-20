@@ -7,6 +7,7 @@ on:
     branches:
       - master
   push:
+<<<<<<< HEAD
     branches:
       - master
 
@@ -17,6 +18,11 @@ concurrency:
 permissions:
   contents: read # to fetch code (actions/checkout)
 
+=======
+    branches: 
+      - master
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 jobs:
   tests:
     name: Run tests
@@ -27,7 +33,11 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     steps:
       - name: Set up git repository
+<<<<<<< HEAD
         uses: actions/checkout@v3
+=======
+        uses: actions/checkout@v2
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       - name: Install zsh
         if: runner.os == 'Linux'
         run: sudo apt-get update; sudo apt-get install zsh

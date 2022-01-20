@@ -52,10 +52,14 @@ source_env() {
   fi
 
   # test .env syntax
+<<<<<<< HEAD
   zsh -fn $ZSH_DOTENV_FILE || {
     echo "dotenv: error when sourcing '$ZSH_DOTENV_FILE' file" >&2
     return 1
   }
+=======
+  zsh -fn $ZSH_DOTENV_FILE || echo "dotenv: error when sourcing '$ZSH_DOTENV_FILE' file" >&2
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   setopt localoptions allexport
   source $ZSH_DOTENV_FILE

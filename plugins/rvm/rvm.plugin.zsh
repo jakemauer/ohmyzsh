@@ -26,7 +26,10 @@ rubies=(
   26  'ruby-2.6'
   27  'ruby-2.7'
   30  'ruby-3.0'
+<<<<<<< HEAD
   31  'ruby-3.1'
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 )
 
 for v in ${(k)rubies}; do

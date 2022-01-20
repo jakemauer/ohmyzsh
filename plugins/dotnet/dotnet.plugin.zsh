@@ -26,7 +26,10 @@ alias dr='dotnet run'
 alias dt='dotnet test'
 alias dw='dotnet watch'
 alias dwr='dotnet watch run'
+<<<<<<< HEAD
 alias dwt='dotnet watch test'
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias ds='dotnet sln'
 alias da='dotnet add'
 alias dp='dotnet pack'

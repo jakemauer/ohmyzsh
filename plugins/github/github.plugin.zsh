@@ -68,9 +68,14 @@ exist_gh() { # [DIRECTORY]
 # documentation: https://github.com/blog/985-git-io-github-url-shortener
 #
 git.io() {
+<<<<<<< HEAD
   # emulate -L zsh
   # curl -i -s https://git.io -F "url=$1" | grep "Location" | cut -f 2 -d " "
   print -u2 ${(%):-"%F{yellow}%BThe \`git.io\` is deprecated.%b\nView the announcement made by GitHub: https://github.blog/changelog/2022-01-11-git-io-no-longer-accepts-new-urls/%f"}
+=======
+  emulate -L zsh
+  curl -i -s https://git.io -F "url=$1" | grep "Location" | cut -f 2 -d " "
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 # End Functions #############################################################

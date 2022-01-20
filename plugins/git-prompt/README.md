@@ -13,7 +13,11 @@ See the [original repository](https://github.com/olivierverdier/zsh-git-prompt).
 
 ## Requirements
 
+<<<<<<< HEAD
 This plugin uses `python3`, so your host needs to have it installed.
+=======
+This plugin uses `python`, so your host needs to have it installed
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ## Examples
 
@@ -45,7 +49,10 @@ The symbols are as follows:
 | ●n     | there are `n` staged files     |
 | ✖n     | there are `n` unmerged files   |
 | ✚n     | there are `n` unstaged files   |
+<<<<<<< HEAD
 | -n     | there are `n` deleted files    |
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 | ⚑n     | there are `n` stashed changes  |
 | …      | there are some untracked files |
 
@@ -60,7 +67,10 @@ The symbols are as follows:
 ## Customisation
 
 - Set the variable `ZSH_THEME_GIT_PROMPT_CACHE` to any value in order to enable caching.
+<<<<<<< HEAD
 - Set the variable `ZSH_THEME_GIT_SHOW_UPSTREAM` to any value to display the upstream branch.
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 - You may also change a number of variables (whose name start with `ZSH_THEME_GIT_PROMPT_`)
   to change the appearance of the prompt. Take a look at the bottom of the [plugin file](git-prompt.plugin.zsh)`
   to see what variables are available.

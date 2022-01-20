@@ -9,6 +9,7 @@ To use it, add `rbw` to the plugins array in your zshrc file:
 plugins=(... rbw)
 ```
 
+<<<<<<< HEAD
 ## `rbwpw`
 
 The `rbwpw` function is a wrapper around `rbw`. It copies the password in the
@@ -19,4 +20,6 @@ The usage is as follows:
 rbwpw <service>
 ```
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 This plugin does not add any aliases.

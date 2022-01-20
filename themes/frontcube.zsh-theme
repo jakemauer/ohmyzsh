@@ -1,7 +1,11 @@
 
 PROMPT='
 %{$fg_bold[gray]%}%~%{$fg_bold[blue]%}%{$fg_bold[blue]%} % %{$reset_color%}
+<<<<<<< HEAD
 %{$fg[green]%}➞  %{$reset_color%}'
+=======
+%{$fg[green]%}➞  %{$reset_color%'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 RPROMPT='$(git_prompt_info) $(ruby_prompt_info)'
 

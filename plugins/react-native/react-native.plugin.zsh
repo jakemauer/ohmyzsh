@@ -28,6 +28,7 @@ alias rnios11='react-native run-ios --simulator "iPhone 11"'
 alias rnios11p='react-native run-ios --simulator "iPhone 11 Pro"'
 alias rnios11pm='react-native run-ios --simulator "iPhone 11 Pro Max"'
 alias rnios12='react-native run-ios --simulator "iPhone 12"'
+<<<<<<< HEAD
 alias rnios12m='react-native run-ios --simulator "iPhone 12 mini"'
 alias rnios12p='react-native run-ios --simulator "iPhone 12 Pro"'
 alias rnios12pm='react-native run-ios --simulator "iPhone 12 Pro Max"'
@@ -39,6 +40,11 @@ alias rnios14='react-native run-ios --simulator "iPhone 14"'
 alias rnios14pl='react-native run-ios --simulator "iPhone 14 Plus"'
 alias rnios14p='react-native run-ios --simulator "iPhone 14 Pro"'
 alias rnios14pm='react-native run-ios --simulator "iPhone 14 Pro Max"'
+=======
+alias rnios12p='react-native run-ios --simulator "iPhone 12 Pro"'
+alias rnios12pm='react-native run-ios --simulator "iPhone 12 Pro Max"'
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 # iPad
 alias rnipad2='react-native run-ios --simulator "iPad 2"'

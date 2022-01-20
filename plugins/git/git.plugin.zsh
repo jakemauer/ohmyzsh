@@ -31,7 +31,11 @@ function work_in_progress() {
 function git_main_branch() {
   command git rev-parse --git-dir &>/dev/null || return
   local ref
+<<<<<<< HEAD
   for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk,mainline,default}; do
+=======
+  for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk}; do
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     if command git show-ref -q --verify $ref; then
       echo ${ref:t}
       return
@@ -69,10 +73,17 @@ alias gap='git apply'
 alias gapt='git apply --3way'
 
 alias gb='git branch'
+<<<<<<< HEAD
 alias gba='git branch --all'
 alias gbd='git branch --delete'
 alias gbda='git branch --no-color --merged | command grep -vE "^([+*]|\s*($(git_main_branch)|$(git_develop_branch))\s*$)" | command xargs git branch --delete 2>/dev/null'
 alias gbD='git branch --delete --force'
+=======
+alias gba='git branch -a'
+alias gbd='git branch -d'
+alias gbda='git branch --no-color --merged | command grep -vE "^([+*]|\s*($(git_main_branch)|$(git_develop_branch))\s*$)" | command xargs git branch -d 2>/dev/null'
+alias gbD='git branch -D'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias gbl='git blame -b -w'
 alias gbnm='git branch --no-merged'
 alias gbr='git branch --remote'
@@ -82,6 +93,7 @@ alias gbsg='git bisect good'
 alias gbsr='git bisect reset'
 alias gbss='git bisect start'
 
+<<<<<<< HEAD
 alias gc='git commit --verbose'
 alias gc!='git commit --verbose --amend'
 alias gcn!='git commit --verbose --no-edit --amend'
@@ -93,6 +105,19 @@ alias gcam='git commit --all --message'
 alias gcsm='git commit --signoff --message'
 alias gcas='git commit --all --signoff'
 alias gcasm='git commit --all --signoff --message'
+=======
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gcn!='git commit -v --no-edit --amend'
+alias gca='git commit -v -a'
+alias gca!='git commit -v -a --amend'
+alias gcan!='git commit -v -a --no-edit --amend'
+alias gcans!='git commit -v -a -s --no-edit --amend'
+alias gcam='git commit -a -m'
+alias gcsm='git commit -s -m'
+alias gcas='git commit -a -s'
+alias gcasm='git commit -a -s -m'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias gcb='git checkout -b'
 alias gcf='git config --list'
 
@@ -103,6 +128,7 @@ function gccd() {
 compdef _git gccd=git-clone
 
 alias gcl='git clone --recurse-submodules'
+<<<<<<< HEAD
 alias gclean='git clean --interactive -d'
 alias gpristine='git reset --hard && git clean --force -dx'
 alias gcm='git checkout $(git_main_branch)'
@@ -117,6 +143,22 @@ alias gcpc='git cherry-pick --continue'
 alias gcs='git commit --gpg-sign'
 alias gcss='git commit --gpg-sign --signoff'
 alias gcssm='git commit --gpg-sign --signoff --message'
+=======
+alias gclean='git clean -id'
+alias gpristine='git reset --hard && git clean -dffx'
+alias gcm='git checkout $(git_main_branch)'
+alias gcd='git checkout $(git_develop_branch)'
+alias gcmsg='git commit -m'
+alias gco='git checkout'
+alias gcor='git checkout --recurse-submodules'
+alias gcount='git shortlog -sn'
+alias gcp='git cherry-pick'
+alias gcpa='git cherry-pick --abort'
+alias gcpc='git cherry-pick --continue'
+alias gcs='git commit -S'
+alias gcss='git commit -S -s'
+alias gcssm='git commit -S -s -m'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 alias gd='git diff'
 alias gdca='git diff --cached'
@@ -199,7 +241,10 @@ alias ggpush='git push origin "$(git_current_branch)"'
 
 alias ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
+<<<<<<< HEAD
 alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease'
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 alias ghh='git help'
 
@@ -208,11 +253,19 @@ alias gignored='git ls-files -v | grep "^[[:lower:]]"'
 alias git-svn-dcommit-push='git svn dcommit && git push github $(git_main_branch):svntrunk'
 
 alias gk='\gitk --all --branches &!'
+<<<<<<< HEAD
 alias gke='\gitk --all $(git log --walk-reflogs --pretty=%h) &!'
 
 alias gl='git pull'
 alias glg='git log --stat'
 alias glgp='git log --stat --patch'
+=======
+alias gke='\gitk --all $(git log -g --pretty=%h) &!'
+
+alias gl='git pull'
+alias glg='git log --stat'
+alias glgp='git log --stat -p'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias glgg='git log --graph'
 alias glgga='git log --graph --decorate --all'
 alias glgm='git log --graph --max-count=10'
@@ -240,7 +293,11 @@ alias gpf!='git push --force'
 alias gpoat='git push origin --all && git push origin --tags'
 alias gpr='git pull --rebase'
 alias gpu='git push upstream'
+<<<<<<< HEAD
 alias gpv='git push --verbose'
+=======
+alias gpv='git push -v'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 alias gr='git remote'
 alias gra='git remote add'
@@ -248,7 +305,11 @@ alias grb='git rebase'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbd='git rebase $(git_develop_branch)'
+<<<<<<< HEAD
 alias grbi='git rebase --interactive'
+=======
+alias grbi='git rebase -i'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias grbm='git rebase $(git_main_branch)'
 alias grbom='git rebase origin/$(git_main_branch)'
 alias grbo='git rebase --onto'
@@ -268,15 +329,25 @@ alias grst='git restore --staged'
 alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
 alias gru='git reset --'
 alias grup='git remote update'
+<<<<<<< HEAD
 alias grv='git remote --verbose'
 
 alias gsb='git status --short --branch'
+=======
+alias grv='git remote -v'
+
+alias gsb='git status -sb'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias gsd='git svn dcommit'
 alias gsh='git show'
 alias gsi='git submodule init'
 alias gsps='git show --pretty=short --show-signature'
 alias gsr='git svn rebase'
+<<<<<<< HEAD
 alias gss='git status --short'
+=======
+alias gss='git status -s'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias gst='git status'
 
 # use the default stash push on git 2.13 and newer
@@ -294,6 +365,7 @@ alias gstu='gsta --include-untracked'
 alias gstall='git stash --all'
 alias gsu='git submodule update'
 alias gsw='git switch'
+<<<<<<< HEAD
 alias gswc='git switch --create'
 alias gswm='git switch $(git_main_branch)'
 alias gswd='git switch $(git_develop_branch)'
@@ -321,6 +393,26 @@ alias gwta='git worktree add'
 alias gwtls='git worktree list'
 alias gwtmv='git worktree move'
 alias gwtrm='git worktree remove'
+=======
+alias gswc='git switch -c'
+alias gswm='git switch $(git_main_branch)'
+alias gswd='git switch $(git_develop_branch)'
+
+alias gts='git tag -s'
+alias gtv='git tag | sort -V'
+alias gtl='gtl(){ git tag --sort=-v:refname -n -l "${1}*" }; noglob gtl'
+
+alias gunignore='git update-index --no-assume-unchanged'
+alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+alias gup='git pull --rebase'
+alias gupv='git pull --rebase -v'
+alias gupa='git pull --rebase --autostash'
+alias gupav='git pull --rebase --autostash -v'
+alias glum='git pull upstream $(git_main_branch)'
+
+alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 alias gam='git am'
 alias gamc='git am --continue'

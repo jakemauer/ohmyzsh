@@ -35,19 +35,31 @@ you would make is not already covered.
 Please be so kind as to [search](#use-the-search-luke) for any open issue already covering
 your problem.
 
+<<<<<<< HEAD
 If you find one, comment on it, so we know more people are experiencing it.
+=======
+If you find one, comment on it so we can know there are more people experiencing it.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 If not, look at the [Troubleshooting](https://github.com/ohmyzsh/ohmyzsh/wiki/Troubleshooting)
 page for instructions on how to gather data to better debug your problem.
 
 Then, you can go ahead and create an issue with as much detail as you can provide.
+<<<<<<< HEAD
 It should include the data gathered as indicated above, along with the following:
+=======
+It should include the data gathered as indicated above, along with:
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 1. How to reproduce the problem
 2. What the correct behavior should be
 3. What the actual behavior is
 
+<<<<<<< HEAD
 Please copy to anyone relevant (e.g. plugin maintainers) by mentioning their GitHub handle
+=======
+Please copy to anyone relevant (_eg_ plugin maintainers) by mentioning their GitHub handle
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 (starting with `@`) in your message.
 
 We will do our very best to help you.
@@ -57,9 +69,15 @@ We will do our very best to help you.
 Please be so kind as to [search](#use-the-search-luke) for any open issue already covering
 your suggestion.
 
+<<<<<<< HEAD
 If you find one, comment on it, so we know more people are supporting it.
 
 If not, you can go ahead and create an issue. Please copy to anyone relevant (e.g. plugin
+=======
+If you find one, comment on it so we can know there are more people supporting it.
+
+If not, you can go ahead and create an issue. Please copy to anyone relevant (_eg_ plugin
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 maintainers) by mentioning their GitHub handle (starting with `@`) in your message.
 
 ## Submitting Pull Requests
@@ -84,7 +102,11 @@ your [problem](#you-have-a-problem), and any pending/merged/rejected PR covering
 
 If the solution is already reported, try it out and +1 the pull request if the
 solution works ok. On the other hand, if you think your solution is better, post
+<<<<<<< HEAD
 it with reference to the other one so we can have both solutions to compare.
+=======
+it with a reference to the other one so we can have both solutions to compare.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 If not, then go ahead and submit a PR. Please copy to anyone relevant (e.g. plugin
 maintainers) by mentioning their GitHub handle (starting with `@`) in your message.
@@ -99,6 +121,7 @@ covering or related to what you want to add.
 
 If you find one, try it out and work with the author on a common solution.
 
+<<<<<<< HEAD
 If not, then go ahead and submit a PR. Please copy to anyone relevant (e.g. plugin
 maintainers) by mentioning their GitHub handle (starting with `@`) in your message.
 
@@ -124,6 +147,12 @@ Because of this, from now on, we require that new aliases follow these condition
 
 This list is not exhaustive! Please remember that your alias will be in the machines of many people,
 so it should be justified why they should have it.
+=======
+If not, then go ahead and submit a PR. Please copy to anyone relevant (_eg_ plugin
+maintainers) by mentioning their GitHub handle (starting with `@`) in your message.
+
+For any extensive change, _eg_ a new plugin, you will have to find testers to +1 your PR.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ----
 
@@ -214,7 +243,11 @@ type(scope)!: subject
   ```
 
 - `subject`: a brief description of the changes. This will be displayed in the changelog. If you need
+<<<<<<< HEAD
   to specify other details, you can use the commit body, but it won't be visible.
+=======
+  to specify other details you can use the commit body but it won't be visible.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   Formatting tricks: the commit subject may contain:
 
@@ -231,9 +264,15 @@ type(scope)!: subject
 
 ### Style
 
+<<<<<<< HEAD
 Try to keep the first commit line short. It's harder to do using this commit style but try to be
 concise, and if you need more space, you can use the commit body. Try to make sure that the commit
 subject is clear and precise enough that users will know what changed by just looking at the changelog.
+=======
+Try to keep the first commit line short. This is harder to do using this commit style but try to be
+concise and if you need more space, you can use the commit body. Try to make sure that the commit
+subject is clear and precise enough that users will know what change by just looking at the changelog.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ----
 

@@ -146,9 +146,14 @@ function aws_change_access_key() {
 }
 
 function aws_profiles() {
+<<<<<<< HEAD
   aws --no-cli-pager configure list-profiles 2> /dev/null && return
   [[ -r "${AWS_CONFIG_FILE:-$HOME/.aws/config}" ]] || return 1
   grep --color=never -Eo '\[.*\]' "${AWS_CONFIG_FILE:-$HOME/.aws/config}" | sed -E 's/^[[:space:]]*\[(profile)?[[:space:]]*([^[:space:]]+)\][[:space:]]*$/\2/g'
+=======
+  [[ -r "${AWS_CONFIG_FILE:-$HOME/.aws/config}" ]] || return 1
+  grep --color=never -Eo '\[.*\]' "${AWS_CONFIG_FILE:-$HOME/.aws/config}" | sed -E 's/^[[:space:]]*\[(profile)?[[:space:]]*([-_[:alnum:]\.@]+)\][[:space:]]*$/\2/g'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 function _aws_profiles() {
@@ -159,7 +164,11 @@ compctl -K _aws_profiles asp acp aws_change_access_key
 # AWS prompt
 function aws_prompt_info() {
   [[ -n "$AWS_PROFILE" ]] || return
+<<<<<<< HEAD
   echo "${ZSH_THEME_AWS_PREFIX=<aws:}${AWS_PROFILE:gs/%/%%}${ZSH_THEME_AWS_SUFFIX=>}"
+=======
+  echo "${ZSH_THEME_AWS_PREFIX:=<aws:}${AWS_PROFILE:gs/%/%%}${ZSH_THEME_AWS_SUFFIX:=>}"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 if [[ "$SHOW_AWS_PROMPT" != false && "$RPROMPT" != *'$(aws_prompt_info)'* ]]; then

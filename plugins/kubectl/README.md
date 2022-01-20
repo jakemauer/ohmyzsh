@@ -22,7 +22,11 @@ plugins=(... kubectl)
 | kcsc    | `kubectl config set-context`        | Set a context entry in kubeconfig                                                                |
 | kcdc    | `kubectl config delete-context`     | Delete the specified context from the kubeconfig                                                 |
 | kccc    | `kubectl config current-context`    | Display the current-context                                                                      |
+<<<<<<< HEAD
 | kcgc    | `kubectl config get-contexts`       | List of contexts available                                                                       |
+=======
+| kcgc    | `kubectl config get-contexts`       | List of contexts available
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 |         |                                     | **General aliases**                                                                              |
 | kdel    | `kubectl delete`                    | Delete resources by filenames, stdin, resources and names, or by resources and label selector    |
 | kdelf   | `kubectl delete -f`                 | Delete a pod using the type and name specified in -f argument                                    |
@@ -71,11 +75,17 @@ plugins=(... kubectl)
 | kdeld   | `kubectl delete deployment`         | Delete the deployment                                                                            |
 | ksd     | `kubectl scale deployment`          | Scale a deployment                                                                               |
 | krsd    | `kubectl rollout status deployment` | Check the rollout status of a deployment                                                         |
+<<<<<<< HEAD
 | kres    | `kubectl set env $@ REFRESHED_AT=...` | Recreate all pods in deployment with zero-downtime                                             |
 |         |                                     | **Rollout management**                                                                           |
 | kgrs    | `kubectl get replicaset`            | List all ReplicaSets `rs` created by the deployment                                              |
 | kdrs    | `kubectl describe replicaset`       | Describe ReplicaSet in detail                                                                    |
 | kers    | `kubectl edit replicaset`           | Edit ReplicaSet from the default editor                                                          |
+=======
+| kres    | `kubectl set env $@ REFRESHED_AT=...` | Recreate all pods in deployment with zero-downtime                                                         |
+|         |                                     | **Rollout management**                                                                           |
+| kgrs    | `kubectl get rs`                    | To see the ReplicaSet `rs` created by the deployment                                             |
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 | krh     | `kubectl rollout history`           | Check the revisions of this deployment                                                           |
 | kru     | `kubectl rollout undo`              | Rollback to the previous revision                                                                |
 |         |                                     | **Port forwarding**                                                                              |
@@ -122,11 +132,14 @@ plugins=(... kubectl)
 | kecj    | `kubectl edit cronjob`              | Edit CronJob from the default editor                                                             |
 | kdcj    | `kubectl describe cronjob`          | Describe a CronJob in details                                                                    |
 | kdelcj  | `kubectl delete cronjob`            | Delete the CronJob                                                                               |
+<<<<<<< HEAD
 |         |                                     | **Job management**                                                                               |
 | kgj     | `kubectl get job`                   | List all Job in ps output format                                                                 |
 | kej     | `kubectl edit job`                  | Edit a Job in details                                                                            |
 | kdj     | `kubectl describe job`              | Describe the Job                                                                                 |
 | kdelj   | `kubectl delete job`                | Delete the Job                                                                                   |
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ## Wrappers
 

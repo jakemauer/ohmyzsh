@@ -6,6 +6,7 @@ encode64() {
     fi
 }
 
+<<<<<<< HEAD
 encodefile64() {
     if [[ $# -eq 0 ]]; then
         echo "You must provide a filename"
@@ -15,6 +16,8 @@ encodefile64() {
     fi
 }
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 decode64() {
     if [[ $# -eq 0 ]]; then
         cat | base64 --decode
@@ -23,5 +26,8 @@ decode64() {
     fi
 }
 alias e64=encode64
+<<<<<<< HEAD
 alias ef64=encodefile64
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias d64=decode64

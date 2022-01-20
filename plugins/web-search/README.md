@@ -25,10 +25,16 @@ $ google oh-my-zsh
 Available search contexts are:
 
 | Context               | URL                                      |
+<<<<<<< HEAD
 | --------------------- | ---------------------------------------- |
 | `bing`                | `https://www.bing.com/search?q=`         |
 | `google`              | `https://www.google.com/search?q=`       |
 | `brs` or `brave`      | `https://search.brave.com/search?q=`     |
+=======
+|-----------------------|------------------------------------------|
+| `bing`                | `https://www.bing.com/search?q=`         |
+| `google`              | `https://www.google.com/search?q=`       |
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 | `yahoo`               | `https://search.yahoo.com/search?p=`     |
 | `ddg` or `duckduckgo` | `https://www.duckduckgo.com/?q=`         |
 | `sp` or `startpage`   | `https://www.startpage.com/do/search?q=` |
@@ -43,7 +49,10 @@ Available search contexts are:
 | `wolframalpha`        | `https://wolframalpha.com/input?i=`      |
 | `archive`             | `https://web.archive.org/web/*/`         |
 | `scholar`             | `https://scholar.google.com/scholar?q=`  |
+<<<<<<< HEAD
 | `ask`                 | `https://www.ask.com/web?q=`             |
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 Also there are aliases for bang-searching DuckDuckGo:
 

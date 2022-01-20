@@ -44,31 +44,48 @@ function jira() {
     open_command "${jira_url}/secure/CreateIssue!default.jspa"
   elif [[ "$action" == "assigned" || "$action" == "reported" ]]; then
     _jira_query ${@:-$action}
+<<<<<<< HEAD
   elif [[ "$action" == "mine" ]]; then
+=======
+  elif [[ "$action" == "myissues" ]]; then
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     echo "Opening my issues"
     open_command "${jira_url}/issues/?filter=-1"
   elif [[ "$action" == "dashboard" ]]; then
     echo "Opening dashboard"
     if [[ "$JIRA_RAPID_BOARD" == "true" ]]; then
+<<<<<<< HEAD
       _jira_rapid_board ${@}
+=======
+      open_command "${jira_url}/secure/RapidBoard.jspa"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     else
       open_command "${jira_url}/secure/Dashboard.jspa"
     fi
   elif [[ "$action" == "tempo" ]]; then
     echo "Opening tempo"
+<<<<<<< HEAD
     if [[ -n "$JIRA_TEMPO_PATH" ]]; then
       open_command "${jira_url}${JIRA_TEMPO_PATH}"
     else
       open_command "${jira_url}/secure/Tempo.jspa"
     fi
+=======
+    open_command "${jira_url}/secure/Tempo.jspa"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   elif [[ "$action" == "dumpconfig" ]]; then
     echo "JIRA_URL=$jira_url"
     echo "JIRA_PREFIX=$jira_prefix"
     echo "JIRA_NAME=$JIRA_NAME"
+<<<<<<< HEAD
     echo "JIRA_RAPID_VIEW=$JIRA_RAPID_VIEW"
     echo "JIRA_RAPID_BOARD=$JIRA_RAPID_BOARD"
     echo "JIRA_DEFAULT_ACTION=$JIRA_DEFAULT_ACTION"
     echo "JIRA_TEMPO_PATH=$JIRA_TEMPO_PATH"
+=======
+    echo "JIRA_RAPID_BOARD=$JIRA_RAPID_BOARD"
+    echo "JIRA_DEFAULT_ACTION=$JIRA_DEFAULT_ACTION"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   else
     # Anything that doesn't match a special action is considered an issue name
     # but `branch` is a special case that will parse the current git branch
@@ -81,7 +98,11 @@ function jira() {
       # Strip suffixes starting with _
       issue_arg=(${(s:_:)issue_arg})
       issue_arg=${issue_arg[1]}
+<<<<<<< HEAD
       if [[ "${issue_arg:l}" = ${jira_prefix:l}* ]]; then
+=======
+      if [[ "$issue_arg" = ${jira_prefix}* ]]; then
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
         issue="${issue_arg}"
       else
         issue="${jira_prefix}${issue_arg}"
@@ -113,6 +134,7 @@ Valid options, in order of precedence:
 EOF
 }
 
+<<<<<<< HEAD
 function _jira_rapid_board() {
   rapid_view=${2:=$JIRA_RAPID_VIEW}
 
@@ -123,6 +145,8 @@ function _jira_rapid_board() {
   fi
 }
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 function _jira_query() {
   emulate -L zsh
   local verb="$1"

@@ -1,6 +1,7 @@
 name: Project tracking
 on:
   issues:
+<<<<<<< HEAD
     types: [opened, reopened]
   pull_request_target:
     types: [opened, reopened, synchronize]
@@ -10,6 +11,12 @@ concurrency:
   cancel-in-progress: true
 
 permissions: {}
+=======
+    types: [opened]
+  pull_request_target:
+    types: [opened, synchronize]
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 jobs:
   add-to-project:
     name: Add to project
@@ -27,6 +34,7 @@ jobs:
           gh api graphql -f query='
             query($org: String!, $number: Int!) {
               organization(login: $org){
+<<<<<<< HEAD
                 projectV2(number: $number) {
                   id
                   fields(first:20) {
@@ -35,10 +43,19 @@ jobs:
                         id
                         name
                       }
+=======
+                projectNext(number: $number) {
+                  id
+                  fields(first:20) {
+                    nodes {
+                      id
+                      name
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
                     }
                   }
                 }
               }
+<<<<<<< HEAD
             }' -f org=$ORGANIZATION -F number=$PROJECT_NUMBER > project_data.json
 
           # Parse project data
@@ -46,6 +63,16 @@ jobs:
           PROJECT_ID=$(jq '.data.organization.projectV2.id' project_data.json)
           PLUGIN_FIELD_ID=$(jq '.data.organization.projectV2.fields.nodes[] | select(.name == "Plugin") | .id' project_data.json)
           THEME_FIELD_ID=$(jq '.data.organization.projectV2.fields.nodes[] | select(.name == "Theme") | .id' project_data.json)
+=======
+            }
+          ' -f org=$ORGANIZATION -F number=$PROJECT_NUMBER > project_data.json
+
+          # Parse project data
+          cat >> $GITHUB_ENV <<EOF
+          PROJECT_ID=$(jq '.data.organization.projectNext.id' project_data.json)
+          PLUGIN_FIELD_ID=$(jq '.data.organization.projectNext.fields.nodes[] | select(.name == "Plugin") | .id' project_data.json)
+          THEME_FIELD_ID=$(jq '.data.organization.projectNext.fields.nodes[] | select(.name == "Theme") | .id' project_data.json)
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
           EOF
 
       - name: Add to project
@@ -54,13 +81,22 @@ jobs:
         run: |
           item_id="$(gh api graphql -f query='
             mutation($project: ID!, $content: ID!) {
+<<<<<<< HEAD
               addProjectV2ItemById(input: {projectId: $project, contentId: $content}) {
                 item {
+=======
+              addProjectNextItem(input: {projectId: $project, contentId: $content}) {
+                projectNextItem {
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
                   id
                 }
               }
             }
+<<<<<<< HEAD
           ' -f project=$PROJECT_ID -f content=$ISSUE_OR_PR_ID --jq '.data.addProjectV2ItemById.item.id')"
+=======
+          ' -f project=$PROJECT_ID -f content=$ISSUE_OR_PR_ID --jq '.data.addProjectNextItem.projectNextItem.id')"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
           echo "ITEM_ID=$item_id" >> $GITHUB_ENV
 
@@ -109,6 +145,7 @@ jobs:
               $theme_field: ID!
               $theme_value: String!
             ) {
+<<<<<<< HEAD
               set_plugin: updateProjectV2ItemFieldValue(input: {
                 projectId: $project
                 itemId: $item
@@ -130,6 +167,25 @@ jobs:
                 }
               }) {
                 projectV2Item {
+=======
+              set_plugin: updateProjectNextItemField(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $plugin_field
+                value: $plugin_value
+              }) {
+                projectNextItem {
+                  id
+                }
+              }
+              set_theme: updateProjectNextItemField(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $theme_field
+                value: $theme_value
+              }) {
+                projectNextItem {
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
                   id
                 }
               }
@@ -138,3 +194,7 @@ jobs:
             -f plugin_field=$PLUGIN_FIELD_ID -f plugin_value=$PLUGIN \
             -f theme_field=$THEME_FIELD_ID -f theme_value=$THEME \
             --silent
+<<<<<<< HEAD
+=======
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

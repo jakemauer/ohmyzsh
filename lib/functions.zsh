@@ -56,7 +56,11 @@ function takegit() {
 }
 
 function take() {
+<<<<<<< HEAD
   if [[ $1 =~ ^(https?|ftp).*\.(tar\.(gz|bz2|xz)|tgz)$ ]]; then
+=======
+  if [[ $1 =~ ^(https?|ftp).*\.tar\.(gz|bz2|xz)$ ]]; then
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     takeurl "$1"
   elif [[ $1 =~ ^([A-Za-z0-9]\+@|https?|git|ssh|ftps?|rsync).*\.git/?$ ]]; then
     takegit "$1"
@@ -144,7 +148,11 @@ zmodload zsh/langinfo
 # Returns nonzero if encoding failed.
 #
 # Usage:
+<<<<<<< HEAD
 #  omz_urlencode [-r] [-m] [-P] <string> [<string> ...]
+=======
+#  omz_urlencode [-r] [-m] [-P] <string>
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 #
 #    -r causes reserved characters (;/?:@&=+$,) to be escaped
 #
@@ -156,7 +164,11 @@ function omz_urlencode() {
   local -a opts
   zparseopts -D -E -a opts r m P
 
+<<<<<<< HEAD
   local in_str="$@"
+=======
+  local in_str=$1
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   local url_str=""
   local spaces_as_plus
   if [[ -z $opts[(r)-P] ]]; then spaces_as_plus=1; fi

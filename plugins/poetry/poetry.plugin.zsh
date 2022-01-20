@@ -12,3 +12,8 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_poetry" ]]; then
 fi
 
 poetry completions zsh >| "$ZSH_CACHE_DIR/completions/_poetry" &|
+<<<<<<< HEAD
+=======
+
+unset comp_file
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

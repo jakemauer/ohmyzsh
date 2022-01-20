@@ -16,6 +16,7 @@ unset completion_file
 # Generally,                                                 #
 #   - `!` means --force --no-wait -y                         #
 #   - `ds` suffix means --destroy-storage                    #
+<<<<<<< HEAD
 #   - `jsh` prefix means juju show-*                         #
 # ---------------------------------------------------------- #
 alias j="juju"
@@ -32,6 +33,14 @@ alias jcld='juju clouds'
 alias jclda='juju clouds --all'
 alias jctl='juju controllers'
 alias jctlr='juju controllers --refresh'
+=======
+# ---------------------------------------------------------- #
+alias jam="juju add-model --config logging-config=\"<root>=WARNING; unit=DEBUG\"\
+ --config update-status-hook-interval=\"60m\""
+alias jb='juju bootstrap'
+alias jbm='juju bootstrap microk8s'
+alias jc='juju config'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias jdc='juju destroy-controller --destroy-all-models'
 alias 'jdc!'='juju destroy-controller --destroy-all-models --force --no-wait -y'
 alias jdcds='juju destroy-controller --destroy-all-models --destroy-storage'
@@ -66,6 +75,7 @@ alias jrp='juju refresh --path'
 alias jrs='juju remove-storage'
 alias 'jrs!'='juju remove-storage --force'
 alias jsa='juju scale-application'
+<<<<<<< HEAD
 alias jsha='juju show-application'
 alias jshc='juju show-controller'
 alias jshm='juju show-model'
@@ -76,6 +86,15 @@ alias jsshc='juju ssh --container'
 alias jstj='juju status --format=json'
 alias jst='juju status --relations --color'
 alias jsts='juju status --relations --storage --color'
+=======
+alias jsh='juju ssh'
+alias jshc='juju ssh --container'
+alias jshm='juju show-model'
+alias jssl='juju show-status-log'
+alias jstj='juju status --format=json'
+alias jst='juju status --relations --storage --color'
+alias jsu='juju show-unit'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias jsw='juju switch'
 
 # ---------------------------------------------------------- #
@@ -108,6 +127,7 @@ jaddr() {
   fi
 }
 
+<<<<<<< HEAD
 # Destroy all controllers
 jclean() {
   if (( ! ${+commands[jq]} )); then
@@ -139,6 +159,8 @@ jclean() {
   done
 }
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # Display app and unit relation data
 jreld() {
   # $1 = relation name
@@ -167,6 +189,11 @@ jreld() {
 wjst() {
   local interval="${1:-5}"
   shift $(( $# > 0 ))
+<<<<<<< HEAD
   watch -n "$interval" --color juju status --relations --color "$@"
 }
 
+=======
+  watch -n "$interval" --color juju status --relations --storage --color "$@"
+}
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

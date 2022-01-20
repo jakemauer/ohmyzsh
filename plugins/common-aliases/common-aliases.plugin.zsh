@@ -35,7 +35,11 @@ alias -g NUL="> /dev/null 2>&1"
 alias -g P="2>&1| pygmentize -l pytb"
 
 alias dud='du -d 1 -h'
+<<<<<<< HEAD
 (( $+commands[duf] )) || alias duf='du -sh *'
+=======
+alias duf='du -sh *'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 (( $+commands[fd] )) || alias fd='find . -type d -name'
 alias ff='find . -type f -name'
 

@@ -106,7 +106,11 @@ _lpass() {
                 generic_options+=('--color=[Color: auto | never | always]')
             fi
             if [ "$has_interactive" -eq 1 ]; then
+<<<<<<< HEAD
                 generic_options+=("--non-interactive[Use standard input instead of $EDITOR]")
+=======
+                generic_options+=("--non-interactive[Use stardard input instead of $EDITOR]")
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
             fi
             _arguments $generic_options
         fi

@@ -78,6 +78,7 @@ supports_hyperlinks() {
     return 0
   fi
 
+<<<<<<< HEAD
   # Windows Terminal also supports hyperlinks
   if [ -n "$WT_SESSION" ]; then
     return 0
@@ -89,6 +90,13 @@ supports_hyperlinks() {
   #   return 0
   # fi
 
+=======
+  # Windows Terminal or Konsole also support hyperlinks
+  if [ -n "$WT_SESSION" ] || [ -n "$KONSOLE_VERSION" ]; then
+    return 0
+  fi
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   return 1
 }
 
@@ -113,7 +121,11 @@ supports_truecolor() {
 fmt_link() {
   # $1: text, $2: url, $3: fallback mode
   if supports_hyperlinks; then
+<<<<<<< HEAD
     printf '\033]8;;%s\033\\%s\033]8;;\033\\\n' "$2" "$1"
+=======
+    printf '\033]8;;%s\a%s\033]8;;\a\n' "$2" "$1"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     return
   fi
 
@@ -170,10 +182,13 @@ git remote -v | while read remote url extra; do
   git@github.com:robbyrussell/oh-my-zsh(|.git))
     git remote set-url "$remote" "git@github.com:ohmyzsh/ohmyzsh.git"
     break ;;
+<<<<<<< HEAD
   # Update out-of-date "unauthenticated git protocol on port 9418" to https
   git://github.com/robbyrussell/oh-my-zsh(|.git))
     git remote set-url "$remote" "https://github.com/ohmyzsh/ohmyzsh.git"
     break ;;
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   esac
 done
 
@@ -204,7 +219,11 @@ last_commit=$(git rev-parse "$branch")
 
 # Update Oh My Zsh
 printf "${BLUE}%s${RESET}\n" "Updating Oh My Zsh"
+<<<<<<< HEAD
 if LANG= git pull --quiet --rebase $remote $branch; then
+=======
+if git pull --rebase $remote $branch; then
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   # Check if it was really updated or not
   if [[ "$(git rev-parse HEAD)" = "$last_commit" ]]; then
     message="Oh My Zsh is already at the latest version."

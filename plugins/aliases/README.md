@@ -15,6 +15,7 @@ Requirements: Python needs to be installed.
 
 ## Usage
 
+<<<<<<< HEAD
 - `acs`: show all aliases by group
 
 - `acs -h/--help`: print help mesage
@@ -24,5 +25,10 @@ Requirements: Python needs to be installed.
 - `acs -g <group>/--group <group>`: show only aliases for group `<group>`. Multiple uses of the flag show all groups
 
 - `acs --groups`: show only group names
+=======
+- `acs`: show all aliases by group.
+
+- `acs <keyword>`: filter aliases by `<keyword>` and highlight.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   ![screenshot](https://cloud.githubusercontent.com/assets/3602957/11581913/cb54fb8a-9a82-11e5-846b-5a67f67ad9ad.png)

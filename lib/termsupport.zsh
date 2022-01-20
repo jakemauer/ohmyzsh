@@ -17,7 +17,11 @@ function title {
   : ${2=$1}
 
   case "$TERM" in
+<<<<<<< HEAD
     cygwin|xterm*|putty*|rxvt*|konsole*|ansi|mlterm*|alacritty|st*|foot)
+=======
+    cygwin|xterm*|putty*|rxvt*|konsole*|ansi|mlterm*|alacritty|st*)
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       print -Pn "\e]2;${2:q}\a" # set window name
       print -Pn "\e]1;${1:q}\a" # set tab name
       ;;

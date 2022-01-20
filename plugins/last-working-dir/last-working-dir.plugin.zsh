@@ -9,7 +9,11 @@ chpwd_last_working_dir() {
   [[ "$ZSH_SUBSHELL" -eq 0 ]] || return 0
   # Add ".$SSH_USER" suffix to cache file if $SSH_USER is set and non-empty
   local cache_file="$ZSH_CACHE_DIR/last-working-dir${SSH_USER:+.$SSH_USER}"
+<<<<<<< HEAD
   builtin pwd >| "$cache_file"
+=======
+  pwd >| "$cache_file"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 # Changes directory to the last working directory

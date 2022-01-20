@@ -22,7 +22,10 @@ plugins=(... terraform)
 | `tfd` | `terraform destroy`  |
 | `tff` | `terraform fmt`      |
 | `tfi` | `terraform init`     |
+<<<<<<< HEAD
 | `tfo` | `terraform output`   |
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 | `tfp` | `terraform plan`     |
 | `tfv` | `terraform validate` |
 

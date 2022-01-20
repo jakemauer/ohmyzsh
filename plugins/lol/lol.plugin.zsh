@@ -45,7 +45,11 @@ alias bringz='git pull'
 alias chicken='git add'
 alias oanward='git commit -m'
 alias ooanward='git commit -am'
+<<<<<<< HEAD
 alias yolo='git commit -m "$(curl -s https://whatthecommit.com/index.txt)"'
+=======
+alias yolo='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias letcat='git checkout'
 alias violenz='git rebase'
 

@@ -57,15 +57,28 @@ mkdir -p "$ZSH_CACHE_DIR/completions"
 (( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
 
 # Check for updates on initial load...
+<<<<<<< HEAD
 source "$ZSH/tools/check_for_upgrade.sh"
+=======
+if [ "$DISABLE_AUTO_UPDATE" != "true" ]; then
+  source $ZSH/tools/check_for_upgrade.sh
+fi
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 # Initializes Oh My Zsh
 
 # add a function path
+<<<<<<< HEAD
 fpath=("$ZSH/functions" "$ZSH/completions" $fpath)
 
 # Load all stock functions (from $fpath files) called below.
 autoload -U compaudit compinit zrecompile
+=======
+fpath=($ZSH/functions $ZSH/completions $fpath)
+
+# Load all stock functions (from $fpath files) called below.
+autoload -U compaudit compinit
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 # Set ZSH_CUSTOM to the path where your custom config files
 # and plugins exists, or else we will use the default custom/
@@ -73,6 +86,10 @@ if [[ -z "$ZSH_CUSTOM" ]]; then
     ZSH_CUSTOM="$ZSH/custom"
 fi
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 is_plugin() {
   local base_dir=$1
   local name=$2
@@ -83,10 +100,17 @@ is_plugin() {
 # Add all defined plugins to fpath. This must be done
 # before running compinit.
 for plugin ($plugins); do
+<<<<<<< HEAD
   if is_plugin "$ZSH_CUSTOM" "$plugin"; then
     fpath=("$ZSH_CUSTOM/plugins/$plugin" $fpath)
   elif is_plugin "$ZSH" "$plugin"; then
     fpath=("$ZSH/plugins/$plugin" $fpath)
+=======
+  if is_plugin $ZSH_CUSTOM $plugin; then
+    fpath=($ZSH_CUSTOM/plugins/$plugin $fpath)
+  elif is_plugin $ZSH $plugin; then
+    fpath=($ZSH/plugins/$plugin $fpath)
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   else
     echo "[oh-my-zsh] plugin '$plugin' not found"
   fi
@@ -95,6 +119,7 @@ done
 # Figure out the SHORT hostname
 if [[ "$OSTYPE" = darwin* ]]; then
   # macOS's $HOST changes with dhcp, etc. Use ComputerName if possible.
+<<<<<<< HEAD
   SHORT_HOST=$(scutil --get ComputerName 2>/dev/null) || SHORT_HOST="${HOST/.*/}"
 else
   SHORT_HOST="${HOST/.*/}"
@@ -103,6 +128,16 @@ fi
 # Save the location of the current completion dump file.
 if [[ -z "$ZSH_COMPDUMP" ]]; then
   ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+=======
+  SHORT_HOST=$(scutil --get ComputerName 2>/dev/null) || SHORT_HOST=${HOST/.*/}
+else
+  SHORT_HOST=${HOST/.*/}
+fi
+
+# Save the location of the current completion dump file.
+if [ -z "$ZSH_COMPDUMP" ]; then
+  ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 fi
 
 # Construct zcompdump OMZ metadata
@@ -116,6 +151,7 @@ if ! command grep -q -Fx "$zcompdump_revision" "$ZSH_COMPDUMP" 2>/dev/null \
   zcompdump_refresh=1
 fi
 
+<<<<<<< HEAD
 if [[ "$ZSH_DISABLE_COMPFIX" != true ]]; then
   source "$ZSH/lib/compfix.zsh"
   # Load only from secure directories
@@ -130,6 +166,21 @@ fi
 # Append zcompdump metadata if missing
 if (( $zcompdump_refresh )) \
   || ! command grep -q -Fx "$zcompdump_revision" "$ZSH_COMPDUMP" 2>/dev/null; then
+=======
+if [[ $ZSH_DISABLE_COMPFIX != true ]]; then
+  source $ZSH/lib/compfix.zsh
+  # If completion insecurities exist, warn the user
+  handle_completion_insecurities
+  # Load only from secure directories
+  compinit -i -C -d "${ZSH_COMPDUMP}"
+else
+  # If the user wants it, load from all found directories
+  compinit -u -C -d "${ZSH_COMPDUMP}"
+fi
+
+# Append zcompdump metadata if missing
+if (( $zcompdump_refresh )); then
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   # Use `tee` in case the $ZSH_COMPDUMP filename is invalid, to silence the error
   # See https://github.com/ohmyzsh/ohmyzsh/commit/dd1a7269#commitcomment-39003489
   tee -a "$ZSH_COMPDUMP" &>/dev/null <<EOF
@@ -138,6 +189,7 @@ $zcompdump_revision
 $zcompdump_fpath
 EOF
 fi
+<<<<<<< HEAD
 unset zcompdump_revision zcompdump_fpath zcompdump_refresh
 
 # zcompile the completion dump file if the .zwc is older or missing.
@@ -168,10 +220,37 @@ unset plugin
 # Load all of your custom configurations from custom/
 for config_file ("$ZSH_CUSTOM"/*.zsh(N)); do
   source "$config_file"
+=======
+
+unset zcompdump_revision zcompdump_fpath zcompdump_refresh
+
+
+# Load all of the config files in ~/oh-my-zsh that end in .zsh
+# TIP: Add files you don't want in git to .gitignore
+for config_file ($ZSH/lib/*.zsh); do
+  custom_config_file="${ZSH_CUSTOM}/lib/${config_file:t}"
+  [ -f "${custom_config_file}" ] && config_file=${custom_config_file}
+  source $config_file
+done
+
+# Load all of the plugins that were defined in ~/.zshrc
+for plugin ($plugins); do
+  if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
+  elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+  fi
+done
+
+# Load all of your custom configurations from custom/
+for config_file ($ZSH_CUSTOM/*.zsh(N)); do
+  source $config_file
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 done
 unset config_file
 
 # Load the theme
+<<<<<<< HEAD
 is_theme() {
   local base_dir=$1
   local name=$2
@@ -187,5 +266,14 @@ if [[ -n "$ZSH_THEME" ]]; then
     source "$ZSH/themes/$ZSH_THEME.zsh-theme"
   else
     echo "[oh-my-zsh] theme '$ZSH_THEME' not found"
+=======
+if [ ! "$ZSH_THEME" = ""  ]; then
+  if [ -f "$ZSH_CUSTOM/$ZSH_THEME.zsh-theme" ]; then
+    source "$ZSH_CUSTOM/$ZSH_THEME.zsh-theme"
+  elif [ -f "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme" ]; then
+    source "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme"
+  else
+    source "$ZSH/themes/$ZSH_THEME.zsh-theme"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   fi
 fi

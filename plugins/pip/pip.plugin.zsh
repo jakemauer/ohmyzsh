@@ -88,33 +88,48 @@ else
   alias pip="noglob pip"
 fi
 
+<<<<<<< HEAD
 alias pipi="pip install"
 alias pipu="pip install --upgrade"
 alias pipun="pip uninstall"
 alias pipgi="pip freeze | grep"
 alias piplo="pip list -o"
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # Create requirements file
 alias pipreq="pip freeze > requirements.txt"
 
 # Install packages from requirements file
 alias pipir="pip install -r requirements.txt"
 
+<<<<<<< HEAD
 # Upgrade all installed packages
+=======
+# Update all installed packages
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 function pipupall {
   # non-GNU xargs does not support nor need `--no-run-if-empty`
   local xargs="xargs --no-run-if-empty"
   xargs --version 2>/dev/null | grep -q GNU || xargs="xargs"
+<<<<<<< HEAD
   pip list --outdated | awk 'NR > 2 { print $1 }' | ${=xargs} pip install --upgrade
 }
 
 # Uninstall all installed packages
+=======
+  pip list --outdated --format freeze | cut -d= -f1 | ${=xargs} pip install --upgrade
+}
+
+# Uninstalled all installed packages
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 function pipunall {
   # non-GNU xargs does not support nor need `--no-run-if-empty`
   local xargs="xargs --no-run-if-empty"
   xargs --version 2>/dev/null | grep -q GNU || xargs="xargs"
   pip list --format freeze | cut -d= -f1 | ${=xargs} pip uninstall
 }
+<<<<<<< HEAD
 
 # Install from GitHub repository
 function pipig {
@@ -133,3 +148,5 @@ function pipigp {
   pip install "git+https://github.com/$1.git@refs/pull/$2/head"
 }
 compdef _pip pipigp
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

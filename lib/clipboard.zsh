@@ -10,8 +10,13 @@
 # - pbcopy, pbpaste (macOS)
 # - cygwin (Windows running Cygwin)
 # - wl-copy, wl-paste (if $WAYLAND_DISPLAY is set)
+<<<<<<< HEAD
 # - xsel (if $DISPLAY is set)
 # - xclip (if $DISPLAY is set)
+=======
+# - xclip (if $DISPLAY is set)
+# - xsel (if $DISPLAY is set)
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # - lemonade (for SSH) https://github.com/pocke/lemonade
 # - doitclient (for SSH) http://www.chiark.greenend.org.uk/~sgtatham/doit/
 # - win32yank (Windows)
@@ -52,11 +57,16 @@ function detect-clipboard() {
   emulate -L zsh
 
   if [[ "${OSTYPE}" == darwin* ]] && (( ${+commands[pbcopy]} )) && (( ${+commands[pbpaste]} )); then
+<<<<<<< HEAD
     function clipcopy() { cat "${1:-/dev/stdin}" | pbcopy; }
+=======
+    function clipcopy() { pbcopy < "${1:-/dev/stdin}"; }
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     function clippaste() { pbpaste; }
   elif [[ "${OSTYPE}" == (cygwin|msys)* ]]; then
     function clipcopy() { cat "${1:-/dev/stdin}" > /dev/clipboard; }
     function clippaste() { cat /dev/clipboard; }
+<<<<<<< HEAD
   elif (( $+commands[clip.exe] )) && (( $+commands[powershell.exe] )); then
     function clipcopy() { cat "${1:-/dev/stdin}" | clip.exe; }
     function clippaste() { powershell.exe -noprofile -command Get-Clipboard; }
@@ -80,10 +90,38 @@ function detect-clipboard() {
     function clippaste() { win32yank -o; }
   elif [[ $OSTYPE == linux-android* ]] && (( $+commands[termux-clipboard-set] )); then
     function clipcopy() { cat "${1:-/dev/stdin}" | termux-clipboard-set; }
+=======
+  elif [ -n "${WAYLAND_DISPLAY:-}" ] && (( ${+commands[wl-copy]} )) && (( ${+commands[wl-paste]} )); then
+    function clipcopy() { wl-copy < "${1:-/dev/stdin}"; }
+    function clippaste() { wl-paste; }
+  elif [ -n "${DISPLAY:-}" ] && (( ${+commands[xclip]} )); then
+    function clipcopy() { xclip -in -selection clipboard < "${1:-/dev/stdin}"; }
+    function clippaste() { xclip -out -selection clipboard; }
+  elif [ -n "${DISPLAY:-}" ] && (( ${+commands[xsel]} )); then
+    function clipcopy() { xsel --clipboard --input < "${1:-/dev/stdin}"; }
+    function clippaste() { xsel --clipboard --output; }
+  elif (( ${+commands[lemonade]} )); then
+    function clipcopy() { lemonade copy < "${1:-/dev/stdin}"; }
+    function clippaste() { lemonade paste; }
+  elif (( ${+commands[doitclient]} )); then
+    function clipcopy() { doitclient wclip < "${1:-/dev/stdin}"; }
+    function clippaste() { doitclient wclip -r; }
+  elif (( ${+commands[win32yank]} )); then
+    function clipcopy() { win32yank -i < "${1:-/dev/stdin}"; }
+    function clippaste() { win32yank -o; }
+  elif [[ $OSTYPE == linux-android* ]] && (( $+commands[termux-clipboard-set] )); then
+    function clipcopy() { termux-clipboard-set < "${1:-/dev/stdin}"; }
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     function clippaste() { termux-clipboard-get; }
   elif [ -n "${TMUX:-}" ] && (( ${+commands[tmux]} )); then
     function clipcopy() { tmux load-buffer "${1:--}"; }
     function clippaste() { tmux save-buffer -; }
+<<<<<<< HEAD
+=======
+  elif [[ $(uname -r) = *icrosoft* ]]; then
+    function clipcopy() { clip.exe < "${1:-/dev/stdin}"; }
+    function clippaste() { powershell.exe -noprofile -command Get-Clipboard; }
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   else
     function _retry_clipboard_detection_or_fail() {
       local clipcmd="${1}"; shift

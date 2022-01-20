@@ -35,6 +35,7 @@ local reset="%{$reset_color%}"
 local -a color_array
 color_array=($green $red $cyan $yellow $blue $magenta $white)
 
+<<<<<<< HEAD
 local username_color=$white
 local hostname_color=$color_array[$[((#HOST))%7+1]] # choose hostname color based on first character
 local current_dir_color=$blue
@@ -46,6 +47,25 @@ local current_dir="%~"
 local username_output="%(!..${username_color}${username}${reset}@)"
 local hostname_output="${hostname_color}${hostname}${reset}"
 local current_dir_output="${current_dir_color}${current_dir}${reset}"
+=======
+local username_normal_color=$white
+local username_root_color=$red
+local hostname_root_color=$red
+
+# calculating hostname color with hostname characters
+for i in `hostname`; local hostname_normal_color=$color_array[$[((#i))%7+1]]
+local -a hostname_color
+hostname_color=%(!.$hostname_root_color.$hostname_normal_color)
+
+local current_dir_color=$blue
+local username_command="%n"
+local hostname_command="%m"
+local current_dir="%~"
+
+local username_output="%(!..$username_normal_color$username_command$reset@)"
+local hostname_output="$hostname_color$hostname_command$reset"
+local current_dir_output="$current_dir_color$current_dir$reset"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 local jobs_bg="${red}fg: %j$reset"
 local last_command_output="%(?.%(!.$red.$green).$yellow)"
 
@@ -62,6 +82,7 @@ ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=">"
 ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="<"
 ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="$red<>"
 
+<<<<<<< HEAD
 function michelebologna_git_prompt {
   local out=$(git_prompt_info)$(git_prompt_status)$(git_remote_status)
   [[ -n $out ]] || return
@@ -75,5 +96,10 @@ function michelebologna_git_prompt {
 
 PROMPT="$username_output$hostname_output:$current_dir_output%1(j. [$jobs_bg].)"
 PROMPT+='$(michelebologna_git_prompt)'
+=======
+PROMPT='$username_output$hostname_output:$current_dir_output%1(j. [$jobs_bg].)'
+GIT_PROMPT='$(out=$(git_prompt_info)$(git_prompt_status)$(git_remote_status);if [[ -n $out ]]; then printf %s " $white($green$out$white)$reset";fi)'
+PROMPT+="$GIT_PROMPT"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 PROMPT+=" $last_command_output%#$reset "
 RPROMPT=''

@@ -12,7 +12,10 @@ alias dcstop="$dccmd stop"
 alias dcup="$dccmd up"
 alias dcupb="$dccmd up --build"
 alias dcupd="$dccmd up -d"
+<<<<<<< HEAD
 alias dcupdb="$dccmd up -d --build"
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias dcdn="$dccmd down"
 alias dcl="$dccmd logs"
 alias dclf="$dccmd logs -f"

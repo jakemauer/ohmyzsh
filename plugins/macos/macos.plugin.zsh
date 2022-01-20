@@ -224,9 +224,14 @@ function quick-look() {
 }
 
 function man-preview() {
+<<<<<<< HEAD
   local location
   # Don't let Preview.app steal focus if the man page doesn't exist
   location=$(man -w "$@") && mandoc -Tpdf $location | open -f -a Preview
+=======
+  # Don't let Preview.app steal focus if the man page doesn't exist
+  man -w "$@" &>/dev/null && man -t "$@" | open -f -a Preview || man "$@"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 compdef _man man-preview
 

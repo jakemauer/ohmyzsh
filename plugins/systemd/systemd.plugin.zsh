@@ -107,8 +107,11 @@ function systemd_prompt_info {
 
     if systemctl is-active "$unit" &>/dev/null; then
       echo -n "$ZSH_THEME_SYSTEMD_PROMPT_ACTIVE"
+<<<<<<< HEAD
     elif systemctl --user is-active "$unit" &>/dev/null; then
       echo -n "$ZSH_THEME_SYSTEMD_PROMPT_ACTIVE"
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     else
       echo -n "$ZSH_THEME_SYSTEMD_PROMPT_NOTACTIVE"
     fi

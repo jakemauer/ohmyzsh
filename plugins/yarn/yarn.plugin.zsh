@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 if zstyle -T ':omz:plugins:yarn' global-path; then
   # Skip yarn call if default global bin dir exists
   [[ -d "$HOME/.yarn/bin" ]] && bindir="$HOME/.yarn/bin" || bindir="$(yarn global bin 2>/dev/null)"
@@ -9,6 +10,17 @@ if zstyle -T ':omz:plugins:yarn' global-path; then
     && path+=("$bindir")
   unset bindir
 fi
+=======
+# Skip yarn call if default global bin dir exists
+[[ -d "$HOME/.yarn/bin" ]] && bindir="$HOME/.yarn/bin" || bindir="$(yarn global bin 2>/dev/null)"
+
+# Add yarn bin directory to $PATH if it exists and not already in $PATH
+[[ $? -eq 0 ]] \
+  && [[ -d "$bindir" ]] \
+  && (( ! ${path[(Ie)$bindir]} )) \
+  && path+=("$bindir")
+unset bindir
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 alias y="yarn"
 alias ya="yarn add"
@@ -17,7 +29,10 @@ alias yap="yarn add --peer"
 alias yb="yarn build"
 alias ycc="yarn cache clean"
 alias yd="yarn dev"
+<<<<<<< HEAD
 alias yf="yarn format"
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias yga="yarn global add"
 alias ygls="yarn global list"
 alias ygrm="yarn global remove"
@@ -43,4 +58,7 @@ alias yup="yarn upgrade"
 alias yv="yarn version"
 alias yw="yarn workspace"
 alias yws="yarn workspaces"
+<<<<<<< HEAD
 alias yy="yarn why"
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

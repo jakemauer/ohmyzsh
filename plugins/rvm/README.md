@@ -23,7 +23,10 @@ plugins=(... rvm)
 | `rb26`       | `rvm use ruby-2.6`   |
 | `rb27`       | `rvm use ruby-2.7`   |
 | `rb30`       | `rvm use ruby-3.0`   |
+<<<<<<< HEAD
 | `rb31`       | `rvm use ruby-3.1`   |
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 | `rvm-update` | `rvm get head`       |
 | `gems`       | `gem list`           |
 | `rvms`       | `rvm gemset`         |

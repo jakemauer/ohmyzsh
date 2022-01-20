@@ -30,6 +30,7 @@ EOF
     local extract_dir="${1:t:r}"
     local file="$1" full_path="${1:A}"
     case "${file:l}" in
+<<<<<<< HEAD
       (*.tar.gz|*.tgz)
         (( $+commands[pigz] )) && { tar -I pigz -xvf "$file" } || tar zxvf "$file" ;;
       (*.tar.bz2|*.tbz|*.tbz2)
@@ -39,6 +40,14 @@ EOF
         tar --xz --help &> /dev/null \
         && tar --xz -xvf "$file" \
         || xzcat "$file" | tar xvf - } ;;
+=======
+      (*.tar.gz|*.tgz) (( $+commands[pigz] )) && { pigz -dc "$file" | tar xv } || tar zxvf "$file" ;;
+      (*.tar.bz2|*.tbz|*.tbz2) tar xvjf "$file" ;;
+      (*.tar.xz|*.txz)
+        tar --xz --help &> /dev/null \
+        && tar --xz -xvf "$file" \
+        || xzcat "$file" | tar xvf - ;;
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       (*.tar.zma|*.tlz)
         tar --lzma --help &> /dev/null \
         && tar --lzma -xvf "$file" \

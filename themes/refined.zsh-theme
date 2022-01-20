@@ -11,11 +11,19 @@
 # more about both of these fantastic two people here:
 #
 # Sindre Sorhus
+<<<<<<< HEAD
 #   GitHub:   https://github.com/sindresorhus
 #   Twitter:  https://twitter.com/sindresorhus
 #
 # Julien Nicoulaud
 #   GitHub:   https://github.com/nicoulaj
+=======
+#   Github:   https://github.com/sindresorhus
+#   Twitter:  https://twitter.com/sindresorhus
+#
+# Julien Nicoulaud
+#   Github:   https://github.com/nicoulaj
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 #   Twitter:  https://twitter.com/nicoulaj
 #
 # ------------------------------------------------------------------------------

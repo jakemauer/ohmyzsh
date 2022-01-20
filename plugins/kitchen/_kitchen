@@ -1,6 +1,10 @@
 #compdef kitchen
 # ------------------------------------------------------------------------------
+<<<<<<< HEAD
 # Copyright (c) 2014 GitHub zsh-users - https://github.com/zsh-users
+=======
+# Copyright (c) 2014 Github zsh-users - https://github.com/zsh-users
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without

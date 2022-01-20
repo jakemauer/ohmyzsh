@@ -1,10 +1,18 @@
 # CakePHP 3 basic command completion
 _cakephp3_get_command_list () {
+<<<<<<< HEAD
 	bin/cake completion commands
 }
 
 _cakephp3_get_sub_command_list () {
 	bin/cake completion subcommands ${words[2]}
+=======
+	bin/cake Completion commands
+}
+
+_cakephp3_get_sub_command_list () {
+	bin/cake Completion subcommands ${words[2]}
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 _cakephp3_get_3rd_argument () {
@@ -34,5 +42,9 @@ compdef _cakephp3 cake
 
 #Alias
 alias c3='bin/cake'
+<<<<<<< HEAD
 alias c3cache='bin/cake schema_cache clear'
+=======
+alias c3cache='bin/cake orm_cache clear'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias c3migrate='bin/cake migrations migrate'

@@ -66,11 +66,14 @@
 #     git           always compare HEAD to @{upstream}
 #     svn           always compare HEAD to your SVN upstream
 #
+<<<<<<< HEAD
 # By default, __git_ps1 will compare HEAD to your SVN upstream if it can
 # find one, or @{upstream} otherwise.  Once you have set
 # GIT_PS1_SHOWUPSTREAM, you can override it on a per-repository basis by
 # setting the bash.showUpstream config variable.
 #
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # You can change the separator between the branch name and the above
 # state symbols by setting GIT_PS1_STATESEPARATOR. The default separator
 # is SP.
@@ -84,6 +87,14 @@
 # single '?' character by setting GIT_PS1_COMPRESSSPARSESTATE, or omitted
 # by setting GIT_PS1_OMITSPARSESTATE.
 #
+<<<<<<< HEAD
+=======
+# By default, __git_ps1 will compare HEAD to your SVN upstream if it can
+# find one, or @{upstream} otherwise.  Once you have set
+# GIT_PS1_SHOWUPSTREAM, you can override it on a per-repository basis by
+# setting the bash.showUpstream config variable.
+#
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # If you would like to see more information about the identity of
 # commits checked out as a detached HEAD, set GIT_PS1_DESCRIBE_STYLE
 # to one of these values:
@@ -115,7 +126,11 @@ __git_ps1_show_upstream ()
 {
 	local key value
 	local svn_remote svn_url_pattern count n
+<<<<<<< HEAD
 	local upstream_type=git legacy="" verbose="" name=""
+=======
+	local upstream=git legacy="" verbose="" name=""
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 	svn_remote=()
 	# get some config options from git-config
@@ -132,25 +147,41 @@ __git_ps1_show_upstream ()
 		svn-remote.*.url)
 			svn_remote[$((${#svn_remote[@]} + 1))]="$value"
 			svn_url_pattern="$svn_url_pattern\\|$value"
+<<<<<<< HEAD
 			upstream_type=svn+git # default upstream type is SVN if available, else git
+=======
+			upstream=svn+git # default upstream is SVN if available, else git
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 			;;
 		esac
 	done <<< "$output"
 
 	# parse configuration values
+<<<<<<< HEAD
 	local option
 	for option in ${GIT_PS1_SHOWUPSTREAM}; do
 		case "$option" in
 		git|svn) upstream_type="$option" ;;
+=======
+	for option in ${GIT_PS1_SHOWUPSTREAM}; do
+		case "$option" in
+		git|svn) upstream="$option" ;;
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 		verbose) verbose=1 ;;
 		legacy)  legacy=1  ;;
 		name)    name=1 ;;
 		esac
 	done
 
+<<<<<<< HEAD
 	# Find our upstream type
 	case "$upstream_type" in
 	git)    upstream_type="@{upstream}" ;;
+=======
+	# Find our upstream
+	case "$upstream" in
+	git)    upstream="@{upstream}" ;;
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 	svn*)
 		# get the upstream from the "git-svn-id: ..." in a commit message
 		# (git-svn uses essentially the same procedure internally)
@@ -167,12 +198,21 @@ __git_ps1_show_upstream ()
 
 			if [[ -z "$svn_upstream" ]]; then
 				# default branch name for checkouts with no layout:
+<<<<<<< HEAD
 				upstream_type=${GIT_SVN_ID:-git-svn}
 			else
 				upstream_type=${svn_upstream#/}
 			fi
 		elif [[ "svn+git" = "$upstream_type" ]]; then
 			upstream_type="@{upstream}"
+=======
+				upstream=${GIT_SVN_ID:-git-svn}
+			else
+				upstream=${svn_upstream#/}
+			fi
+		elif [[ "svn+git" = "$upstream" ]]; then
+			upstream="@{upstream}"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 		fi
 		;;
 	esac
@@ -180,11 +220,19 @@ __git_ps1_show_upstream ()
 	# Find how many commits we are ahead/behind our upstream
 	if [[ -z "$legacy" ]]; then
 		count="$(git rev-list --count --left-right \
+<<<<<<< HEAD
 				"$upstream_type"...HEAD 2>/dev/null)"
 	else
 		# produce equivalent output to --count for older versions of git
 		local commits
 		if commits="$(git rev-list --left-right "$upstream_type"...HEAD 2>/dev/null)"
+=======
+				"$upstream"...HEAD 2>/dev/null)"
+	else
+		# produce equivalent output to --count for older versions of git
+		local commits
+		if commits="$(git rev-list --left-right "$upstream"...HEAD 2>/dev/null)"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 		then
 			local commit behind=0 ahead=0
 			for commit in $commits
@@ -214,6 +262,7 @@ __git_ps1_show_upstream ()
 		*)	    # diverged from upstream
 			p="<>" ;;
 		esac
+<<<<<<< HEAD
 	else # verbose, set upstream instead of p
 		case "$count" in
 		"") # no upstream
@@ -234,6 +283,28 @@ __git_ps1_show_upstream ()
 				upstream="$upstream \${__git_ps1_upstream_name}"
 			else
 				upstream="$upstream ${__git_ps1_upstream_name}"
+=======
+	else
+		case "$count" in
+		"") # no upstream
+			p="" ;;
+		"0	0") # equal to upstream
+			p=" u=" ;;
+		"0	"*) # ahead of upstream
+			p=" u+${count#0	}" ;;
+		*"	0") # behind upstream
+			p=" u-${count%	0}" ;;
+		*)	    # diverged from upstream
+			p=" u+${count#*	}-${count%	*}" ;;
+		esac
+		if [[ -n "$count" && -n "$name" ]]; then
+			__git_ps1_upstream_name=$(git rev-parse \
+				--abbrev-ref "$upstream" 2>/dev/null)
+			if [ $pcmode = yes ] && [ $ps1_expanded = yes ]; then
+				p="$p \${__git_ps1_upstream_name}"
+			else
+				p="$p ${__git_ps1_upstream_name}"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 				# not needed anymore; keep user's
 				# environment clean
 				unset __git_ps1_upstream_name
@@ -245,8 +316,12 @@ __git_ps1_show_upstream ()
 
 # Helper function that is meant to be called from __git_ps1.  It
 # injects color codes into the appropriate gitstring variables used
+<<<<<<< HEAD
 # to build a gitstring. Colored variables are responsible for clearing
 # their own color.
+=======
+# to build a gitstring.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 __git_ps1_colorize_gitstring ()
 {
 	if [[ -n ${ZSH_VERSION-} ]]; then
@@ -272,6 +347,7 @@ __git_ps1_colorize_gitstring ()
 	else
 		branch_color="$bad_color"
 	fi
+<<<<<<< HEAD
 	if [ -n "$c" ]; then
 		c="$branch_color$c$c_clear"
 	fi
@@ -289,6 +365,24 @@ __git_ps1_colorize_gitstring ()
 	if [ -n "$u" ]; then
 		u="$bad_color$u$c_clear"
 	fi
+=======
+	c="$branch_color$c"
+
+	z="$c_clear$z"
+	if [ "$w" = "*" ]; then
+		w="$bad_color$w"
+	fi
+	if [ -n "$i" ]; then
+		i="$ok_color$i"
+	fi
+	if [ -n "$s" ]; then
+		s="$flags_color$s"
+	fi
+	if [ -n "$u" ]; then
+		u="$bad_color$u"
+	fi
+	r="$c_clear$r"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 # Helper function to read the first line of a file into a variable.
@@ -435,8 +529,13 @@ __git_ps1 ()
 	fi
 
 	local sparse=""
+<<<<<<< HEAD
 	if [ -z "${GIT_PS1_COMPRESSSPARSESTATE-}" ] &&
 	   [ -z "${GIT_PS1_OMITSPARSESTATE-}" ] &&
+=======
+	if [ -z "${GIT_PS1_COMPRESSSPARSESTATE}" ] &&
+	   [ -z "${GIT_PS1_OMITSPARSESTATE}" ] &&
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 	   [ "$(git config --bool core.sparseCheckout)" = "true" ]; then
 		sparse="|SPARSE"
 	fi
@@ -514,8 +613,12 @@ __git_ps1 ()
 	local u=""
 	local h=""
 	local c=""
+<<<<<<< HEAD
 	local p="" # short version of upstream state indicator
 	local upstream="" # verbose version of upstream state indicator
+=======
+	local p=""
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 	if [ "true" = "$inside_gitdir" ]; then
 		if [ "true" = "$bare_repo" ]; then
@@ -546,7 +649,11 @@ __git_ps1 ()
 			u="%${ZSH_VERSION+%}"
 		fi
 
+<<<<<<< HEAD
 		if [ -n "${GIT_PS1_COMPRESSSPARSESTATE-}" ] &&
+=======
+		if [ -n "${GIT_PS1_COMPRESSSPARSESTATE}" ] &&
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 		   [ "$(git config --bool core.sparseCheckout)" = "true" ]; then
 			h="?"
 		fi
@@ -558,12 +665,15 @@ __git_ps1 ()
 
 	local z="${GIT_PS1_STATESEPARATOR-" "}"
 
+<<<<<<< HEAD
 	b=${b##refs/heads/}
 	if [ $pcmode = yes ] && [ $ps1_expanded = yes ]; then
 		__git_ps1_branch_name=$b
 		b="\${__git_ps1_branch_name}"
 	fi
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 	# NO color option unless in PROMPT_COMMAND mode or it's Zsh
 	if [ -n "${GIT_PS1_SHOWCOLORHINTS-}" ]; then
 		if [ $pcmode = yes ] || [ -n "${ZSH_VERSION-}" ]; then
@@ -571,8 +681,19 @@ __git_ps1 ()
 		fi
 	fi
 
+<<<<<<< HEAD
 	local f="$h$w$i$s$u$p"
 	local gitstring="$c$b${f:+$z$f}${sparse}$r${upstream}"
+=======
+	b=${b##refs/heads/}
+	if [ $pcmode = yes ] && [ $ps1_expanded = yes ]; then
+		__git_ps1_branch_name=$b
+		b="\${__git_ps1_branch_name}"
+	fi
+
+	local f="$h$w$i$s$u"
+	local gitstring="$c$b${f:+$z$f}${sparse}$r$p"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 	if [ $pcmode = yes ]; then
 		if [ "${__git_printf_supports_v-}" != yes ]; then

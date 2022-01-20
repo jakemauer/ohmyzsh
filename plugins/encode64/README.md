@@ -10,11 +10,18 @@ plugins=(... encode64)
 
 ## Functions and Aliases
 
+<<<<<<< HEAD
 | Function       | Alias  | Description                            |
 | -------------- | ------ | -------------------------------------- |
 | `encode64`     | `e64`  | Encodes given data to base64           |
 | `encodefile64` | `ef64` | Encodes given file's content to base64 |
 | `decode64`     | `d64`  | Decodes given data from base64         |
+=======
+| Function   | Alias | Description                    |
+| ---------- | ----- | ------------------------------ |
+| `encode64` | `e64` | Encodes given data to base64   |
+| `decode64` | `d64` | Decodes given data from base64 |
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ## Usage and examples
 
@@ -38,6 +45,7 @@ plugins=(... encode64)
   b2gtbXktenNo==
   ```
 
+<<<<<<< HEAD
 ### Encoding a file
 
 Encode a file's contents to base64 and save output to text file.  
@@ -52,6 +60,8 @@ Encode a file's contents to base64 and save output to text file.
   ohmyzsh.icn's content encoded in base64 and saved as ohmyzsh.icn.txt
   ```
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 ### Decoding
 
 - From parameter

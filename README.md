@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <p align="center"><img src="https://ohmyzsh.s3.amazonaws.com/omz-ansi-github.png" alt="Oh My Zsh"></p>
+=======
+<p align="center"><img src="https://s3.amazonaws.com/ohmyzsh/oh-my-zsh-logo.png" alt="Oh My Zsh"></p>
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 Oh My Zsh is an open source, community-driven framework for managing your [zsh](https://www.zsh.org/) configuration.
 
@@ -18,6 +22,7 @@ To learn more, visit [ohmyz.sh](https://ohmyz.sh), follow [@ohmyzsh](https://twi
 [![Gitpod ready](https://img.shields.io/badge/Gitpod-ready-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ohmyzsh/ohmyzsh)
 [![huntr.dev](https://cdn.huntr.dev/huntr_security_badge_mono.svg)](https://huntr.dev/bounties/disclose/?utm_campaign=ohmyzsh%2Fohmyzsh&utm_medium=social&utm_source=github&target=https%3A%2F%2Fgithub.com%2Fohmyzsh%2Fohmyzsh)
 
+<<<<<<< HEAD
 <details>
 <summary>Table of Contents</summary>
 
@@ -53,6 +58,8 @@ To learn more, visit [ohmyz.sh](https://ohmyz.sh), follow [@ohmyzsh](https://twi
 
 </details>
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 ## Getting Started
 
 ### Prerequisites
@@ -67,12 +74,20 @@ To learn more, visit [ohmyz.sh](https://ohmyz.sh), follow [@ohmyzsh](https://twi
 Oh My Zsh is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl`, `wget` or another similar tool.
 
 | Method    | Command                                                                                           |
+<<<<<<< HEAD
 | :-------- | :------------------------------------------------------------------------------------------------ |
+=======
+|:----------|:--------------------------------------------------------------------------------------------------|
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 | **curl**  | `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"` |
 | **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`   |
 | **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"` |
 
+<<<<<<< HEAD
 _Note that any previous `.zshrc` will be renamed to `.zshrc.pre-oh-my-zsh`. After installation, you can move the configuration you want to preserve into the new `.zshrc`._
+=======
+_Note that previous configuration in `.zshrc` will be placed in `.pre-oh-my-zsh`. After installation you can move configuration you want to preserve into `.zshrc`._
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 #### Manual inspection
 
@@ -117,7 +132,11 @@ _Note that the plugins are separated by whitespace (spaces, tabs, new lines...).
 
 #### Using Plugins
 
+<<<<<<< HEAD
 Each built-in plugin includes a **README**, documenting it. This README should show the aliases (if the plugin adds any) and extra goodies that are included in that particular plugin.
+=======
+Each plugin includes a __README__, documenting it. This README should show the aliases (if the plugin adds any) and extra goodies that are included in that particular plugin.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ### Themes
 
@@ -140,7 +159,11 @@ ZSH_THEME="agnoster" # (this is one of the fancy ones)
 # see https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#agnoster
 ```
 
+<<<<<<< HEAD
 _Note: many themes require installing a [Powerline Font](https://github.com/powerline/fonts) or a [Nerd Font](https://github.com/ryanoasis/nerd-fonts) in order to render properly. Without them, these themes will render [weird prompt symbols](https://github.com/ohmyzsh/ohmyzsh/wiki/FAQ#i-have-a-weird-character-in-my-prompt)_
+=======
+_Note: many themes require installing the [Powerline Fonts](https://github.com/powerline/fonts) in order to render properly._
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 Open up a new terminal window and your prompt should look something like this:
 
@@ -196,9 +219,15 @@ ZSH="$HOME/.dotfiles/oh-my-zsh" sh install.sh
 
 #### Unattended install
 
+<<<<<<< HEAD
 If you're running the Oh My Zsh install script as part of an automated install, you can pass the `--unattended`
 flag to the `install.sh` script. This will have the effect of not trying to change
 the default shell, and it also won't run `zsh` when the installation has finished.
+=======
+If you're running the Oh My Zsh install script as part of an automated install, you can pass the
+flag `--unattended` to the `install.sh` script. This will have the effect of not trying to change
+the default shell, and also won't run `zsh` when the installation has finished.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -229,19 +258,31 @@ REPO=apjanke/oh-my-zsh BRANCH=edge sh install.sh
 
 #### Manual Installation
 
+<<<<<<< HEAD
 ##### 1. Clone the repository <!-- omit in toc -->
+=======
+##### 1. Clone the repository
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ```sh
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 ```
 
+<<<<<<< HEAD
 ##### 2. _Optionally_, backup your existing `~/.zshrc` file <!-- omit in toc -->
+=======
+##### 2. *Optionally*, backup your existing `~/.zshrc` file
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ```sh
 cp ~/.zshrc ~/.zshrc.orig
 ```
 
+<<<<<<< HEAD
 ##### 3. Create a new zsh configuration file <!-- omit in toc -->
+=======
+##### 3. Create a new zsh configuration file
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 You can create a new zsh config file by copying the template that we have included for you.
 
@@ -249,7 +290,11 @@ You can create a new zsh config file by copying the template that we have includ
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 ```
 
+<<<<<<< HEAD
 ##### 4. Change your default shell <!-- omit in toc -->
+=======
+##### 4. Change your default shell
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ```sh
 chsh -s $(which zsh)
@@ -257,7 +302,11 @@ chsh -s $(which zsh)
 
 You must log out from your user session and log back in to see this change.
 
+<<<<<<< HEAD
 ##### 5. Initialize your new zsh configuration <!-- omit in toc -->
+=======
+##### 5. Initialize your new zsh configuration
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 Once you open up a new terminal window, it should load zsh with Oh My Zsh's configuration.
 
@@ -265,8 +314,15 @@ Once you open up a new terminal window, it should load zsh with Oh My Zsh's conf
 
 If you have any hiccups installing, here are a few common fixes.
 
+<<<<<<< HEAD
 - You _might_ need to modify your `PATH` in `~/.zshrc` if you're not able to find some commands after switching to `oh-my-zsh`.
 - If you installed manually or changed the install location, check the `ZSH` environment variable in `~/.zshrc`.
+=======
+- You _might_ need to modify your `PATH` in `~/.zshrc` if you're not able to find some commands after
+switching to `oh-my-zsh`.
+- If you installed manually or changed the install location, check the `ZSH` environment variable in
+`~/.zshrc`.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ### Custom Plugins and Themes
 
@@ -329,7 +385,11 @@ Before you participate in our delightful community, please read the [code of con
 
 I'm far from being a [Zsh](https://www.zsh.org/) expert and suspect there are many ways to improve – if you have ideas on how to make the configuration easier to maintain (and faster), don't hesitate to fork and send pull requests!
 
+<<<<<<< HEAD
 We also need people to test out pull requests. So take a look through [the open issues](https://github.com/ohmyzsh/ohmyzsh/issues) and help where you can.
+=======
+We also need people to test out pull-requests. So take a look through [the open issues](https://github.com/ohmyzsh/ohmyzsh/issues) and help where you can.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 See [Contributing](CONTRIBUTING.md) for more details.
 

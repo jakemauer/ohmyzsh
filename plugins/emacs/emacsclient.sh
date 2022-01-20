@@ -11,6 +11,7 @@ emacsfun() {
   esac
 
   # Check if there are suitable frames
+<<<<<<< HEAD
   frames="$(emacsclient -a '' -n -e "$cmd" 2>/dev/null |sed 's/.*\x07//g' )"
 
   # Only create another X frame if there isn't one present
@@ -20,6 +21,17 @@ emacsfun() {
   fi
 
   emacsclient --alternate-editor="" "$@"
+=======
+  frames="$(emacsclient -a '' -n -e "$cmd" 2>/dev/null)"
+
+  # Only create another X frame if there isn't one present
+  if [ -z "$frames" -o "$frames" = nil ]; then
+    emacsclient --alternate-editor "" --create-frame "$@"
+    return $?
+  fi
+
+  emacsclient --alternate-editor "" "$@"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 # Adapted from https://github.com/davidshepherd7/emacs-read-stdin/blob/master/emacs-read-stdin.sh

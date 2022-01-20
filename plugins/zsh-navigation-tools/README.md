@@ -226,7 +226,11 @@ Zsh plugins may look scary, as they seem to have some "architecture". In fact, w
 1. It has its directory added to `fpath`
 2. It has any first `*.plugin.zsh` file sourced
 
+<<<<<<< HEAD
 That's it. When one contributes to Oh-My-Zsh or creates a plugin for any plugin manager, they only need to account for this.
+=======
+That's it. When one contributes to Oh-My-Zsh or creates a plugin for any plugin manager, he only needs to account for this.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 The same with doing any non-typical Zsh Navigation Tools installation.
 
 ## More

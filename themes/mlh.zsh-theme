@@ -47,10 +47,13 @@ if [ -z "$MLH_SHELL_SYMBOL" ]; then
   MLH_SHELL_SYMBOL="$ "
 fi
 
+<<<<<<< HEAD
 if [ -z "$MLH_SHELL_SYMBOL_ROOT" ]; then
   MLH_SHELL_SYMBOL_ROOT="# "
 fi
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # colors
 USER_COLOR="%F{001}"
 DEVICE_COLOR="%F{033}"
@@ -87,11 +90,15 @@ exit_code() {
 }
 
 prompt_end() {
+<<<<<<< HEAD
   if [ "$UID" -eq 0 ]; then
     printf "\n$MLH_SHELL_SYMBOL_ROOT"
   else
     printf "\n$MLH_SHELL_SYMBOL"
   fi
+=======
+  printf "\n$MLH_SHELL_SYMBOL"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 # Set git_prompt_info text

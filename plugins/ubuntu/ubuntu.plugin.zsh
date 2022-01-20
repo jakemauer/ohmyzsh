@@ -1,6 +1,10 @@
 (( $+commands[apt] )) && APT=apt || APT=apt-get
 
+<<<<<<< HEAD
 alias acse='apt-cache search'
+=======
+alias acs='apt-cache search'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 alias afs='apt-file search --regexp'
 

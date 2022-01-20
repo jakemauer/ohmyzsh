@@ -18,8 +18,12 @@ plugins=(... sprunge)
 | `echo data \| sprunge`       | Any piped data will be uploaded           |
 
 Once sprunge has processed the input it will give you a unique HTTP address:
+<<<<<<< HEAD
 
 ```console
+=======
+```
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 $ sprunge "hello"
 http://sprunge.us/XxjnKz
 ```
@@ -31,8 +35,11 @@ http://sprunge.us/XxjnKz
 - Argument precedence goes as follows: stdin > piped input > text strings.
 - If a filename is misspelled or doesn't have the necessary path description, it will NOT
   generate an error, but instead treat it as a text string.
+<<<<<<< HEAD
 
 ## Credits
 
 - Original code: [shellperson.net](https://web.archive.org/web/20190910065842/https://www.shellperson.net/sprunge-pastebin-script/).
 - Adapted by: Matt Parnell (@ilikenwf).
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

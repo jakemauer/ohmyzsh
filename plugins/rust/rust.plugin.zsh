@@ -2,6 +2,14 @@ if ! (( $+commands[rustup] && $+commands[cargo] )); then
   return
 fi
 
+<<<<<<< HEAD
+=======
+# Add completions folder in $ZSH_CACHE_DIR
+# TODO: 2021-12-28: remove this bit of code as it exists in oh-my-zsh.sh
+command mkdir -p "$ZSH_CACHE_DIR/completions"
+(( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # If the completion file doesn't exist yet, we need to autoload it and
 # bind it to `cargo`. Otherwise, compinit will have already done that
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_cargo" ]]; then

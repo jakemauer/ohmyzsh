@@ -37,7 +37,11 @@ function _frontend() {
     'lodash: Search in Lo-Dash website'
     'mdn: Search in MDN website'
     'nodejs: Search in NodeJS website'
+<<<<<<< HEAD
     'npmjs: Search in npmjs website'
+=======
+    'npmjs: Search in NPMJS website'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     'packagephobia: Search in Packagephobia website'
     'qunit: Search in Qunit website'
     'reactjs: Search in React website'

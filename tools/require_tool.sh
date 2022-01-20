@@ -107,7 +107,11 @@ usage() {
 NAME
     require_tool.sh - Ensure version of a tool is greater than the one expected
 
+<<<<<<< HEAD
 SYNOPSIS
+=======
+SYNOPSYS
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     require_tool.sh [ -h ]
                     [ --help ]
                     [ TOOL MIN_VERSION ]

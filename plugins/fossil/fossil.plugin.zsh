@@ -13,11 +13,20 @@ ZSH_THEME_FOSSIL_PROMPT_DIRTY=" %{$fg_bold[red]%}✖"
 ZSH_THEME_FOSSIL_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
 
 function fossil_prompt_info() {
+<<<<<<< HEAD
   local branch=$(fossil branch current 2>&1)
 
   # if we're not in a fossil repo, don't show anything
   ! command grep -q "use --repo" <<< "$branch" || return
 
+=======
+  local info=$(fossil branch 2>&1)
+
+  # if we're not in a fossil repo, don't show anything
+  ! command grep -q "use --repo" <<< "$info" || return
+
+  local branch=$(echo $info | grep "* " | sed 's/* //g')
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   local changes=$(fossil changes)
   local dirty="$ZSH_THEME_FOSSIL_PROMPT_CLEAN"
 

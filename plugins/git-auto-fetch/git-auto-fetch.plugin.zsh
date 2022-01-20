@@ -2,8 +2,12 @@
 : ${GIT_AUTO_FETCH_INTERVAL:=60}
 
 # Necessary for the git-fetch-all function
+<<<<<<< HEAD
 zmodload zsh/datetime
 zmodload -F zsh/stat b:zstat  # only zstat command, not stat command
+=======
+zmodload zsh/datetime zsh/stat
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 function git-fetch-all {
   (
@@ -28,7 +32,10 @@ function git-fetch-all {
     # Fetch all remotes (avoid ssh passphrase prompt)
     date -R &>! "$gitdir/FETCH_LOG"
     GIT_SSH_COMMAND="command ssh -o BatchMode=yes" \
+<<<<<<< HEAD
     GIT_TERMINAL_PROMPT=0 \
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       command git fetch --all 2>/dev/null &>> "$gitdir/FETCH_LOG"
   ) &|
 }

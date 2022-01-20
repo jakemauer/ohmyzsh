@@ -8,7 +8,11 @@ fi
 
 # If method undefined, find the first one that is installed
 if [[ -z "$JSONTOOLS_METHOD" ]]; then
+<<<<<<< HEAD
   for JSONTOOLS_METHOD in node python3 ruby; do
+=======
+  for JSONTOOLS_METHOD in node python ruby; do
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     # If method found, break out of loop
     (( $+commands[$JSONTOOLS_METHOD] )) && break
     # Otherwise unset the variable
@@ -45,12 +49,21 @@ case "$JSONTOOLS_METHOD" in
       xargs -0 node -e "console.log(decodeURIComponent(process.argv[1]))"
     }
   ;;
+<<<<<<< HEAD
   python3)
     function pp_json() {
       python3 -c 'import sys; del sys.path[0]; import runpy; runpy._run_module_as_main("json.tool")'
     }
     function is_json() {
       python3 -c '
+=======
+  python)
+    function pp_json() {
+      python -c 'import sys; del sys.path[0]; import runpy; runpy._run_module_as_main("json.tool")'
+    }
+    function is_json() {
+      python -c '
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 import sys; del sys.path[0];
 import json
 try:
@@ -61,14 +74,22 @@ except ValueError:
       '
     }
     function urlencode_json() {
+<<<<<<< HEAD
       python3 -c '
+=======
+      python -c '
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 import sys; del sys.path[0];
 from urllib.parse import quote_plus
 print(quote_plus(sys.stdin.read()))
       '
     }
     function urldecode_json() {
+<<<<<<< HEAD
       python3 -c '
+=======
+      python -c '
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 import sys; del sys.path[0];
 from urllib.parse import unquote_plus
 print(unquote_plus(sys.stdin.read()))

@@ -16,9 +16,12 @@
 #   ZSH=~/.zsh sh install.sh
 #
 # Respects the following environment variables:
+<<<<<<< HEAD
 #   ZDOTDIR - path to Zsh dotfiles directory (default: unset). See [1][2]
 #             [1] https://zsh.sourceforge.io/Doc/Release/Parameters.html#index-ZDOTDIR
 #             [2] https://zsh.sourceforge.io/Doc/Release/Files.html#index-ZDOTDIR_002c-use-of
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 #   ZSH     - path to the Oh My Zsh repository folder (default: $HOME/.oh-my-zsh)
 #   REPO    - name of the GitHub repo to install from (default: ohmyzsh/ohmyzsh)
 #   REMOTE  - full remote URL of the git repo to install (default: GitHub via HTTPS)
@@ -40,6 +43,7 @@
 #
 set -e
 
+<<<<<<< HEAD
 # Make sure important variables exist if not already defined
 #
 # $USER is defined by login(1) which is not always executed (e.g. containers)
@@ -68,6 +72,14 @@ ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 
 # Default settings
 REPO=${REPO:-ohmyzsh/ohmyzsh}
+=======
+# Track if $ZSH was provided
+custom_zsh=${ZSH:+yes}
+
+# Default settings
+ZSH=${ZSH:-~/.oh-my-zsh}
+REPO=${REPO:-jakemauer/ohmyzsh}
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 
@@ -82,8 +94,11 @@ command_exists() {
 }
 
 user_can_sudo() {
+<<<<<<< HEAD
   # Check if sudo is installed
   command_exists sudo || return 1
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   # The following command has 3 parts:
   #
   # 1. Run `sudo` with `-v`. Does the following:
@@ -102,7 +117,11 @@ user_can_sudo() {
   #    to run `sudo` in the default locale (with `LANG=`) so that the message
   #    stays consistent regardless of the user's locale.
   #
+<<<<<<< HEAD
   ! LANG= sudo -n -v 2>&1 | grep -q "may not run sudo"
+=======
+  LANG= sudo -n -v 2>&1 | grep -q "may not run sudo"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 # The [ -t 1 ] check only works when the function is not called from
@@ -168,6 +187,7 @@ supports_hyperlinks() {
     return 0
   fi
 
+<<<<<<< HEAD
   # Windows Terminal also supports hyperlinks
   if [ -n "$WT_SESSION" ]; then
     return 0
@@ -179,6 +199,13 @@ supports_hyperlinks() {
   #   return 0
   # fi
 
+=======
+  # Windows Terminal or Konsole also support hyperlinks
+  if [ -n "$WT_SESSION" ] || [ -n "$KONSOLE_VERSION" ]; then
+    return 0
+  fi
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   return 1
 }
 
@@ -203,7 +230,11 @@ supports_truecolor() {
 fmt_link() {
   # $1: text, $2: url, $3: fallback mode
   if supports_hyperlinks; then
+<<<<<<< HEAD
     printf '\033]8;;%s\033\\%s\033]8;;\033\\\n' "$2" "$1"
+=======
+    printf '\033]8;;%s\a%s\033]8;;\a\n' "$2" "$1"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     return
   fi
 
@@ -223,12 +254,17 @@ fmt_code() {
 }
 
 fmt_error() {
+<<<<<<< HEAD
   printf '%sError: %s%s\n' "${FMT_BOLD}${FMT_RED}" "$*" "$FMT_RESET" >&2
+=======
+  printf '%sError: %s%s\n' "$BOLD$RED" "$*" "$RESET" >&2
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 setup_color() {
   # Only use colors if connected to a terminal
   if ! is_tty; then
+<<<<<<< HEAD
     FMT_RAINBOW=""
     FMT_RED=""
     FMT_GREEN=""
@@ -236,11 +272,24 @@ setup_color() {
     FMT_BLUE=""
     FMT_BOLD=""
     FMT_RESET=""
+=======
+    RAINBOW=""
+    RED=""
+    GREEN=""
+    YELLOW=""
+    BLUE=""
+    BOLD=""
+    RESET=""
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     return
   fi
 
   if supports_truecolor; then
+<<<<<<< HEAD
     FMT_RAINBOW="
+=======
+    RAINBOW="
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       $(printf '\033[38;2;255;0;0m')
       $(printf '\033[38;2;255;97;0m')
       $(printf '\033[38;2;247;255;0m')
@@ -250,7 +299,11 @@ setup_color() {
       $(printf '\033[38;2;245;0;172m')
     "
   else
+<<<<<<< HEAD
     FMT_RAINBOW="
+=======
+    RAINBOW="
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       $(printf '\033[38;5;196m')
       $(printf '\033[38;5;202m')
       $(printf '\033[38;5;226m')
@@ -261,12 +314,21 @@ setup_color() {
     "
   fi
 
+<<<<<<< HEAD
   FMT_RED=$(printf '\033[31m')
   FMT_GREEN=$(printf '\033[32m')
   FMT_YELLOW=$(printf '\033[33m')
   FMT_BLUE=$(printf '\033[34m')
   FMT_BOLD=$(printf '\033[1m')
   FMT_RESET=$(printf '\033[0m')
+=======
+  RED=$(printf '\033[31m')
+  GREEN=$(printf '\033[32m')
+  YELLOW=$(printf '\033[33m')
+  BLUE=$(printf '\033[34m')
+  BOLD=$(printf '\033[1m')
+  RESET=$(printf '\033[0m')
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 setup_ohmyzsh() {
@@ -277,7 +339,11 @@ setup_ohmyzsh() {
   # precedence over umasks except for filesystems mounted with option "noacl".
   umask g-w,o-w
 
+<<<<<<< HEAD
   echo "${FMT_BLUE}Cloning Oh My Zsh...${FMT_RESET}"
+=======
+  echo "${BLUE}Cloning Oh My Zsh...${RESET}"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   command_exists git || {
     fmt_error "git is not installed"
@@ -285,12 +351,17 @@ setup_ohmyzsh() {
   }
 
   ostype=$(uname)
+<<<<<<< HEAD
   if [ -z "${ostype%CYGWIN*}" ] && git --version | grep -Eq 'msysgit|windows'; then
+=======
+  if [ -z "${ostype%CYGWIN*}" ] && git --version | grep -q msysgit; then
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     fmt_error "Windows/MSYS Git is not supported on Cygwin"
     fmt_error "Make sure the Cygwin git package is installed and is first on the \$PATH"
     exit 1
   fi
 
+<<<<<<< HEAD
   # Manual clone with git config options to support git < v1.7.2
   git init --quiet "$ZSH" && cd "$ZSH" \
   && git config core.eol lf \
@@ -312,6 +383,18 @@ setup_ohmyzsh() {
   }
   # Exit installation directory
   cd -
+=======
+  git clone -c core.eol=lf -c core.autocrlf=false \
+    -c fsck.zeroPaddedFilemode=ignore \
+    -c fetch.fsck.zeroPaddedFilemode=ignore \
+    -c receive.fsck.zeroPaddedFilemode=ignore \
+    -c oh-my-zsh.remote=origin \
+    -c oh-my-zsh.branch="$BRANCH" \
+    --depth=1 --branch "$BRANCH" "$REMOTE" "$ZSH" || {
+    fmt_error "git clone of oh-my-zsh repo failed"
+    exit 1
+  }
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   echo
 }
@@ -320,6 +403,7 @@ setup_zshrc() {
   # Keep most recent old .zshrc at .zshrc.pre-oh-my-zsh, and older ones
   # with datestamp of installation that moved them aside, so we never actually
   # destroy a user's original zshrc
+<<<<<<< HEAD
   echo "${FMT_BLUE}Looking for an existing zsh config...${FMT_RESET}"
 
   # Must use this exact name so uninstall.sh can find it
@@ -328,6 +412,16 @@ setup_zshrc() {
     # Skip this if the user doesn't want to replace an existing .zshrc
     if [ "$KEEP_ZSHRC" = yes ]; then
       echo "${FMT_YELLOW}Found ${zdot}/.zshrc.${FMT_RESET} ${FMT_GREEN}Keeping...${FMT_RESET}"
+=======
+  echo "${BLUE}Looking for an existing zsh config...${RESET}"
+
+  # Must use this exact name so uninstall.sh can find it
+  OLD_ZSHRC=~/.zshrc.pre-oh-my-zsh
+  if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
+    # Skip this if the user doesn't want to replace an existing .zshrc
+    if [ "$KEEP_ZSHRC" = yes ]; then
+      echo "${YELLOW}Found ~/.zshrc.${RESET} ${GREEN}Keeping...${RESET}"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       return
     fi
     if [ -e "$OLD_ZSHRC" ]; then
@@ -339,6 +433,7 @@ setup_zshrc() {
       fi
       mv "$OLD_ZSHRC" "${OLD_OLD_ZSHRC}"
 
+<<<<<<< HEAD
       echo "${FMT_YELLOW}Found old .zshrc.pre-oh-my-zsh." \
         "${FMT_GREEN}Backing up to ${OLD_OLD_ZSHRC}${FMT_RESET}"
     fi
@@ -355,6 +450,21 @@ setup_zshrc() {
 
   sed "s|^export ZSH=.*$|export ZSH=\"${omz}\"|" "$ZSH/templates/zshrc.zsh-template" > "$zdot/.zshrc-omztemp"
   mv -f "$zdot/.zshrc-omztemp" "$zdot/.zshrc"
+=======
+      echo "${YELLOW}Found old ~/.zshrc.pre-oh-my-zsh." \
+        "${GREEN}Backing up to ${OLD_OLD_ZSHRC}${RESET}"
+    fi
+    echo "${YELLOW}Found ~/.zshrc.${RESET} ${GREEN}Backing up to ${OLD_ZSHRC}${RESET}"
+    mv ~/.zshrc "$OLD_ZSHRC"
+  fi
+
+  echo "${GREEN}Using the Oh My Zsh template file and adding it to ~/.zshrc.${RESET}"
+
+  # Replace $HOME path with '$HOME' in $ZSH variable in .zshrc file
+  omz=$(echo "$ZSH" | sed "s|^$HOME/|\$HOME/|")
+  sed "s|^export ZSH=.*$|export ZSH=\"${omz}\"|" "$ZSH/templates/zshrc.zsh-template" > ~/.zshrc-omztemp
+  mv -f ~/.zshrc-omztemp ~/.zshrc
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   echo
 }
@@ -374,16 +484,28 @@ setup_shell() {
   if ! command_exists chsh; then
     cat <<EOF
 I can't change your shell automatically because this system does not have chsh.
+<<<<<<< HEAD
 ${FMT_BLUE}Please manually change your default shell to zsh${FMT_RESET}
+=======
+${BLUE}Please manually change your default shell to zsh${RESET}
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 EOF
     return
   fi
 
+<<<<<<< HEAD
   echo "${FMT_BLUE}Time to change your default shell to zsh:${FMT_RESET}"
 
   # Prompt for user choice on changing the default login shell
   printf '%sDo you want to change your default shell to zsh? [Y/n]%s ' \
     "$FMT_YELLOW" "$FMT_RESET"
+=======
+  echo "${BLUE}Time to change your default shell to zsh:${RESET}"
+
+  # Prompt for user choice on changing the default login shell
+  printf '%sDo you want to change your default shell to zsh? [Y/n]%s ' \
+    "$YELLOW" "$RESET"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   read -r opt
   case $opt in
     y*|Y*|"") ;;
@@ -422,9 +544,15 @@ EOF
 
   # We're going to change the default shell, so back up the current one
   if [ -n "$SHELL" ]; then
+<<<<<<< HEAD
     echo "$SHELL" > "$zdot/.shell.pre-oh-my-zsh"
   else
     grep "^$USER:" /etc/passwd | awk -F: '{print $7}' > "$zdot/.shell.pre-oh-my-zsh"
+=======
+    echo "$SHELL" > ~/.shell.pre-oh-my-zsh
+  else
+    grep "^$USER:" /etc/passwd | awk -F: '{print $7}' > ~/.shell.pre-oh-my-zsh
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   fi
 
   echo "Changing your shell to $zsh..."
@@ -439,9 +567,15 @@ EOF
   # be prompted for the password either way, so this shouldn't cause any issues.
   #
   if user_can_sudo; then
+<<<<<<< HEAD
     sudo -k chsh -s "$zsh" "$USER"  # -k forces the password prompt
   else
     chsh -s "$zsh" "$USER"          # run chsh normally
+=======
+    chsh -s "$zsh" "$USER"          # run chsh normally
+  else
+    sudo -k chsh -s "$zsh" "$USER"  # -k forces the password prompt
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   fi
 
   # Check if the shell change was successful
@@ -449,12 +583,17 @@ EOF
     fmt_error "chsh command unsuccessful. Change your default shell manually."
   else
     export SHELL="$zsh"
+<<<<<<< HEAD
     echo "${FMT_GREEN}Shell successfully changed to '$zsh'.${FMT_RESET}"
+=======
+    echo "${GREEN}Shell successfully changed to '$zsh'.${RESET}"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   fi
 
   echo
 }
 
+<<<<<<< HEAD
 # shellcheck disable=SC2183  # printf string has more %s than arguments ($FMT_RAINBOW expands to multiple arguments)
 print_success() {
   printf '%s         %s__      %s           %s        %s       %s     %s__   %s\n'      $FMT_RAINBOW $FMT_RESET
@@ -467,12 +606,30 @@ print_success() {
   printf '\n'
   printf "%s %s %s\n" "Before you scream ${FMT_BOLD}${FMT_YELLOW}Oh My Zsh!${FMT_RESET} look over the" \
     "$(fmt_code "$(fmt_link ".zshrc" "file://$zdot/.zshrc" --text)")" \
+=======
+# shellcheck disable=SC2183  # printf string has more %s than arguments ($RAINBOW expands to multiple arguments)
+print_success() {
+  printf '%s         %s__      %s           %s        %s       %s     %s__   %s\n'      $RAINBOW $RESET
+  printf '%s  ____  %s/ /_    %s ____ ___  %s__  __  %s ____  %s_____%s/ /_  %s\n'      $RAINBOW $RESET
+  printf '%s / __ \\%s/ __ \\  %s / __ `__ \\%s/ / / / %s /_  / %s/ ___/%s __ \\ %s\n'  $RAINBOW $RESET
+  printf '%s/ /_/ /%s / / / %s / / / / / /%s /_/ / %s   / /_%s(__  )%s / / / %s\n'      $RAINBOW $RESET
+  printf '%s\\____/%s_/ /_/ %s /_/ /_/ /_/%s\\__, / %s   /___/%s____/%s_/ /_/  %s\n'    $RAINBOW $RESET
+  printf '%s    %s        %s           %s /____/ %s       %s     %s          %s....is now installed!%s\n' $RAINBOW $GREEN $RESET
+  printf '\n'
+  printf '\n'
+  printf "%s %s %s\n" "Before you scream ${BOLD}${YELLOW}Oh My Zsh!${RESET} look over the" \
+    "$(fmt_code "$(fmt_link ".zshrc" "file://$HOME/.zshrc" --text)")" \
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     "file to select plugins, themes, and options."
   printf '\n'
   printf '%s\n' "• Follow us on Twitter: $(fmt_link @ohmyzsh https://twitter.com/ohmyzsh)"
   printf '%s\n' "• Join our Discord community: $(fmt_link "Discord server" https://discord.gg/ohmyzsh)"
   printf '%s\n' "• Get stickers, t-shirts, coffee mugs and more: $(fmt_link "Planet Argon Shop" https://shop.planetargon.com/collections/oh-my-zsh)"
+<<<<<<< HEAD
   printf '%s\n' $FMT_RESET
+=======
+  printf '%s\n' $RESET
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 }
 
 main() {
@@ -495,12 +652,20 @@ main() {
   setup_color
 
   if ! command_exists zsh; then
+<<<<<<< HEAD
     echo "${FMT_YELLOW}Zsh is not installed.${FMT_RESET} Please install zsh first."
+=======
+    echo "${YELLOW}Zsh is not installed.${RESET} Please install zsh first."
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     exit 1
   fi
 
   if [ -d "$ZSH" ]; then
+<<<<<<< HEAD
     echo "${FMT_YELLOW}The \$ZSH folder already exists ($ZSH).${FMT_RESET}"
+=======
+    echo "${YELLOW}The \$ZSH folder already exists ($ZSH).${RESET}"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     if [ "$custom_zsh" = yes ]; then
       cat <<EOF
 
@@ -528,7 +693,11 @@ EOF
   print_success
 
   if [ $RUNZSH = no ]; then
+<<<<<<< HEAD
     echo "${FMT_YELLOW}Run zsh to try it out.${FMT_RESET}"
+=======
+    echo "${YELLOW}Run zsh to try it out.${RESET}"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     exit
   fi
 

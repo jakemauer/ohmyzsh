@@ -11,4 +11,13 @@ plugins=(... httpie)
 
 It uses completion from [zsh-completions](https://github.com/zsh-users/zsh-completions).
 
+<<<<<<< HEAD
+=======
+## Aliases
+
+| Alias        | Command                                                          |
+| ------------ | ---------------------------------------------------------------- |
+| `https`      | `http --default-scheme=https`                                    |
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 **Maintainer:** [lululau](https://github.com/lululau)

@@ -6,7 +6,11 @@
 
 # -----------------------------------------------------------------------------
 #          FILE:  _pod
+<<<<<<< HEAD
 #   DESCRIPTION:  CocoaPods (0.33.1) autocomplete plugin for Oh-My-Zsh
+=======
+#   DESCRIPTION:  Cocoapods (0.33.1) autocomplete plugin for Oh-My-Zsh
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 #                 https://cocoapods.org
 #                 Generated with `pod --completion-script
 #        AUTHOR:  Alexandre Joly (alexandre.joly@mekanics.ch)

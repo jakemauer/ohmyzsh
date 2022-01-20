@@ -102,6 +102,10 @@ zstyle ':vcs_info:*' actionformats \
 zstyle ':vcs_info:*' formats \
     "%{$c8%}%s%%{$c7%}❨ %{$c9%}%{$c11%}%b%{$c7%} ❩%{$reset_color%}%f "
 
+<<<<<<< HEAD
+=======
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 zstyle ':vcs_info:*' enable git
 
 add-zsh-hook precmd prompt_jnrowe_precmd

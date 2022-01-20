@@ -1,9 +1,16 @@
 # Plugin owners
 plugins/archlinux/                  @ratijas
+<<<<<<< HEAD
 plugins/genpass/                    @atoponce
 plugins/git-lfs/                    @hellovietduc
 plugins/gitfast/                    @felipec
 plugins/react-native                @esthor
+=======
+plugins/aws/                        @maksyms
+plugins/genpass/                    @atoponce
+plugins/git-lfs/                    @hellovietduc
+plugins/gitfast/                    @felipec
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 plugins/sdk/                        @rgoldberg
 plugins/shell-proxy/                @septs
 plugins/universalarchive/           @Konfekt

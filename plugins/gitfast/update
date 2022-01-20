@@ -1,7 +1,11 @@
 #!/bin/sh
 
 url="https://raw.githubusercontent.com/felipec/git-completion"
+<<<<<<< HEAD
 version="1.3.7"
+=======
+version="1.2"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 curl -s -o _git "${url}/v${version}/git-completion.zsh" &&
 curl -s -o git-completion.bash "${url}/v${version}/git-completion.bash" &&

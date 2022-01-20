@@ -4,6 +4,7 @@
 #
 # Author: https://github.com/HalisCz
 
+<<<<<<< HEAD
 if (( ! $+commands[doctl] )); then
   return
 fi
@@ -15,3 +16,8 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_doctl" ]]; then
 fi
 
 doctl completion zsh >| "$ZSH_CACHE_DIR/completions/_doctl" &|
+=======
+if [ $commands[doctl] ]; then
+  source <(doctl completion zsh)
+fi
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

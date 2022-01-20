@@ -119,7 +119,11 @@ function wrap_clipboard_widgets() {
   done
 }
 
+<<<<<<< HEAD
 wrap_clipboard_widgets copy vi-yank vi-yank-eol vi-backward-kill-word vi-change-whole-line vi-delete vi-delete-char
+=======
+wrap_clipboard_widgets copy vi-yank vi-yank-eol vi-backward-kill-word vi-change-whole-line vi-delete
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 wrap_clipboard_widgets paste vi-put-{before,after}
 unfunction wrap_clipboard_widgets
 

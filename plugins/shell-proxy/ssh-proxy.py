@@ -20,6 +20,7 @@ proxy_protocols = {
 if parsed.scheme not in proxy_protocols:
     raise TypeError('unsupported proxy protocol: "{}"'.format(parsed.scheme))
 
+<<<<<<< HEAD
 def make_argv():
     yield "nc"
     if sys.platform == 'linux':
@@ -34,3 +35,16 @@ def make_argv():
     yield sys.argv[2] # port
 
 subprocess.call(make_argv())
+=======
+argv = [
+    "nc",
+    "-X",
+    proxy_protocols[parsed.scheme], # Supported protocols are 4 (SOCKS v4), 5 (SOCKS v5) and connect (HTTP proxy). Default SOCKS v5 is used.
+    "-x",
+    parsed.netloc,  # proxy-host:proxy-port
+    sys.argv[1],  # host
+    sys.argv[2],  # port
+]
+
+subprocess.call(argv)
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

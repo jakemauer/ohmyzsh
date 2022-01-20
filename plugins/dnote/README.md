@@ -1,6 +1,10 @@
 # Dnote Plugin
 
+<<<<<<< HEAD
 This plugin adds auto-completion for [Dnote](https://www.getdnote.com/), a simple command line notebook.
+=======
+This plugin adds auto-completion for [Dnote](https://dnote.io) project.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 To use it, add `dnote` to the plugins array in your zshrc file:
 

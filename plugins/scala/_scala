@@ -1,6 +1,10 @@
 #compdef scala scalac
 # ------------------------------------------------------------------------------
+<<<<<<< HEAD
 # Copyright (c) 2012 GitHub zsh-users - https://github.com/zsh-users
+=======
+# Copyright (c) 2012 Github zsh-users - https://github.com/zsh-users
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without

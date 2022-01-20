@@ -13,7 +13,10 @@ unset p
 alias gob='go build'
 alias goc='go clean'
 alias god='go doc'
+<<<<<<< HEAD
 alias goe='go env'
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 alias gof='go fmt'
 alias gofa='go fmt ./...'
 alias gofx='go fix'
@@ -33,5 +36,8 @@ alias gotoc='go tool compile'
 alias gotod='go tool dist'
 alias gotofx='go tool fix'
 alias gov='go vet'
+<<<<<<< HEAD
 alias gove='go version'
 alias gow='go work'
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

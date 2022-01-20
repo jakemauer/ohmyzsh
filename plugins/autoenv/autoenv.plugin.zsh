@@ -13,7 +13,10 @@ if ! type autoenv_init >/dev/null; then
       ~/.autoenv
       ~/.local/bin
       /usr/local/opt/autoenv
+<<<<<<< HEAD
       /opt/homebrew/opt/autoenv
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       /usr/local/bin
       /usr/share/autoenv-git
       ~/Library/Python/bin

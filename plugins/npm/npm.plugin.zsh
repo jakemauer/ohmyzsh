@@ -1,5 +1,9 @@
 (( $+commands[npm] )) && {
+<<<<<<< HEAD
   command rm -f "${ZSH_CACHE_DIR:-$ZSH/cache}/npm_completion"
+=======
+  rm -f "${ZSH_CACHE_DIR:-$ZSH/cache}/npm_completion"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   _npm_completion() {
     local si=$IFS

@@ -9,6 +9,7 @@ To use it, add `yarn` to the plugins array in your zshrc file:
 plugins=(... yarn)
 ```
 
+<<<<<<< HEAD
 ## Global scripts directory
 
 It also adds `yarn` global scripts dir (commonly `~/.yarn/bin`) to the `$PATH`.
@@ -18,6 +19,8 @@ To disable this feature, set the following style in your `.zshrc`:
 zstyle ':omz:plugins:yarn' global-path no
 ```
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 ## Aliases
 
 | Alias | Command                                   | Description                                                                   |
@@ -29,7 +32,10 @@ zstyle ':omz:plugins:yarn' global-path no
 | yb    | `yarn build`                              | Run the build script defined in `package.json`                                |
 | ycc   | `yarn cache clean`                        | Clean yarn's global cache of packages                                         |
 | yd    | `yarn dev`                                | Run the dev script defined in `package.json`                                  |
+<<<<<<< HEAD
 | yf    | `yarn format`                             | Run the dev script defined in `package.json`                                  |
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 | yga   | `yarn global add`                         | Install packages globally on your operating system                            |
 | ygls  | `yarn global list`                        | Lists global installed packages                                               |
 | ygrm  | `yarn global remove`                      | Remove global installed packages from your OS                                 |
@@ -55,4 +61,7 @@ zstyle ':omz:plugins:yarn' global-path no
 | yv    | `yarn version`                            | Update the version of your package                                            |
 | yw    | `yarn workspace`                          | Run a command within a single workspace.                                      |
 | yws   | `yarn workspaces`                         | Run a command within all defined workspaces.                                  |
+<<<<<<< HEAD
 | yy    | `yarn why`                                | Show why a package has been installed, detailing which other packages depend on it |
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

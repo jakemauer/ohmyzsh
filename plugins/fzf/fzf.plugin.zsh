@@ -9,7 +9,10 @@ function fzf_setup_using_base_dir() {
       "${HOME}/.nix-profile/share/fzf"
       "${XDG_DATA_HOME:-$HOME/.local/share}/fzf"
       "/usr/local/opt/fzf"
+<<<<<<< HEAD
       "/opt/homebrew/bin/fzf"
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       "/usr/share/fzf"
       "/usr/local/share/examples/fzf"
     )
@@ -60,8 +63,13 @@ function fzf_setup_using_base_dir() {
 
 
 function fzf_setup_using_debian() {
+<<<<<<< HEAD
   if (( ! $+commands[apt] && ! $+commands[apt-get] )); then
     # Not a debian based distro 
+=======
+  if (( ! $+commands[dpkg] )) || ! dpkg -s fzf &>/dev/null; then
+    # Either not a debian based distro, or no fzf installed
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     return 1
   fi
 
@@ -72,19 +80,25 @@ function fzf_setup_using_debian() {
 
   case $PREFIX in
     *com.termux*)
+<<<<<<< HEAD
       if [[ ! -f "${PREFIX}/bin/fzf" ]]; then
         # fzf not installed
         return 1
       fi
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       # Support Termux package
       completions="${PREFIX}/share/fzf/completion.zsh"
       key_bindings="${PREFIX}/share/fzf/key-bindings.zsh"
       ;;
     *)
+<<<<<<< HEAD
       if [[ ! -d /usr/share/doc/fzf/examples ]]; then
         # fzf not installed
         return 1
       fi
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       # Determine completion file path: first bullseye/sid, then buster/stretch
       completions="/usr/share/doc/fzf/examples/completion.zsh"
       [[ -f "$completions" ]] || completions="/usr/share/zsh/vendor-completions/_fzf"
@@ -182,6 +196,7 @@ function fzf_setup_using_cygwin() {
   return 0
 }
 
+<<<<<<< HEAD
 function fzf_setup_using_macports() {
   # If the command is not found, the package isn't installed
   (( $+commands[fzf] )) || return 1
@@ -208,6 +223,8 @@ function fzf_setup_using_macports() {
   return 0
 }
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # Indicate to user that fzf installation not found if nothing worked
 function fzf_setup_error() {
   cat >&2 <<'EOF'
@@ -220,17 +237,27 @@ fzf_setup_using_openbsd \
   || fzf_setup_using_debian \
   || fzf_setup_using_opensuse \
   || fzf_setup_using_cygwin \
+<<<<<<< HEAD
   || fzf_setup_using_macports \
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   || fzf_setup_using_base_dir \
   || fzf_setup_error
 
 unset -f -m 'fzf_setup_*'
 
 if [[ -z "$FZF_DEFAULT_COMMAND" ]]; then
+<<<<<<< HEAD
   if (( $+commands[fd] )); then
     export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
   elif (( $+commands[rg] )); then
     export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
+=======
+  if (( $+commands[rg] )); then
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
+  elif (( $+commands[fd] )); then
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   elif (( $+commands[ag] )); then
     export FZF_DEFAULT_COMMAND='ag -l --hidden -g "" --ignore .git'
   fi

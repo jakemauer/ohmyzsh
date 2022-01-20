@@ -6,6 +6,9 @@ cache/
 log/
 *.swp
 .DS_Store
+<<<<<<< HEAD
 
 # editor configs
 .vscode
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

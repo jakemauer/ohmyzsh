@@ -3,6 +3,18 @@ if ! (( $+commands[tmux] )); then
   return 1
 fi
 
+<<<<<<< HEAD
+=======
+# ALIASES
+
+alias ta='tmux attach -t'
+alias tad='tmux attach -d -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias tksv='tmux kill-server'
+alias tkss='tmux kill-session -t'
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # CONFIGURATION VARIABLES
 # Automatically start tmux
 : ${ZSH_TMUX_AUTOSTART:=false}
@@ -30,6 +42,7 @@ fi
 # Set -u option to support unicode
 : ${ZSH_TMUX_UNICODE:=false}
 
+<<<<<<< HEAD
 # ALIASES
 
 alias ta='tmux attach -t'
@@ -40,6 +53,8 @@ alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 alias tmuxconf='$EDITOR $ZSH_TMUX_CONFIG'
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 # Determine if the terminal supports 256 colors
 if [[ $terminfo[colors] == 256 ]]; then
   export ZSH_TMUX_TERM=$ZSH_TMUX_FIXTERM_WITH_256COLOR
@@ -73,11 +88,15 @@ function _zsh_tmux_plugin_run() {
   [[ "$ZSH_TMUX_UNICODE" == "true" ]] && tmux_cmd+=(-u)
 
   # Try to connect to an existing session.
+<<<<<<< HEAD
   if [[ -n "$ZSH_TMUX_DEFAULT_SESSION_NAME" ]]; then
     [[ "$ZSH_TMUX_AUTOCONNECT" == "true" ]] && $tmux_cmd attach -t $ZSH_TMUX_DEFAULT_SESSION_NAME
   else
     [[ "$ZSH_TMUX_AUTOCONNECT" == "true" ]] && $tmux_cmd attach
   fi
+=======
+  [[ "$ZSH_TMUX_AUTOCONNECT" == "true" ]] && $tmux_cmd attach
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
   # If failed, just run tmux, fixing the TERM variable if requested.
   if [[ $? -ne 0 ]]; then
@@ -87,9 +106,15 @@ function _zsh_tmux_plugin_run() {
       tmux_cmd+=(-f "$ZSH_TMUX_CONFIG")
     fi
     if [[ -n "$ZSH_TMUX_DEFAULT_SESSION_NAME" ]]; then
+<<<<<<< HEAD
       $tmux_cmd new-session -s $ZSH_TMUX_DEFAULT_SESSION_NAME
     else
       $tmux_cmd new-session
+=======
+        $tmux_cmd new-session -s $ZSH_TMUX_DEFAULT_SESSION_NAME
+    else
+        $tmux_cmd new-session
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     fi
   fi
 

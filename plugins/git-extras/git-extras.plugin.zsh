@@ -51,7 +51,11 @@ __gitex_remote_names() {
     local expl
     declare -a remote_names
     remote_names=(${(f)"$(_call_program remotes git remote 2>/dev/null)"})
+<<<<<<< HEAD
     __gitex_command_successful || return
+=======
+    __git_command_successful || return
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     _wanted remote-names expl remote-name compadd $* - $remote_names
 }
 
@@ -59,7 +63,11 @@ __gitex_tag_names() {
     local expl
     declare -a tag_names
     tag_names=(${${(f)"$(_call_program tags git for-each-ref --format='"%(refname)"' refs/tags 2>/dev/null)"}#refs/tags/})
+<<<<<<< HEAD
     __gitex_command_successful || return
+=======
+    __git_command_successful || return
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     _wanted tag-names expl tag-name compadd $* - $tag_names
 }
 
@@ -68,7 +76,11 @@ __gitex_branch_names() {
     local expl
     declare -a branch_names
     branch_names=(${${(f)"$(_call_program branchrefs git for-each-ref --format='"%(refname)"' refs/heads 2>/dev/null)"}#refs/heads/})
+<<<<<<< HEAD
     __gitex_command_successful || return
+=======
+    __git_command_successful || return
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     _wanted branch-names expl branch-name compadd $* - $branch_names
 }
 
@@ -76,7 +88,11 @@ __gitex_specific_branch_names() {
     local expl
     declare -a branch_names
     branch_names=(${${(f)"$(_call_program branchrefs git for-each-ref --format='"%(refname)"' refs/heads/"$1" 2>/dev/null)"}#refs/heads/$1/})
+<<<<<<< HEAD
     __gitex_command_successful || return
+=======
+    __git_command_successful || return
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     _wanted branch-names expl branch-name compadd - $branch_names
 }
 
@@ -100,7 +116,11 @@ __gitex_submodule_names() {
     local expl
     declare -a submodule_names
     submodule_names=(${(f)"$(_call_program branchrefs git submodule status | awk '{print $2}')"})  # '
+<<<<<<< HEAD
     __gitex_command_successful || return
+=======
+    __git_command_successful || return
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     _wanted submodule-names expl submodule-name compadd $* - $submodule_names
 }
 
@@ -109,7 +129,11 @@ __gitex_author_names() {
     local expl
     declare -a author_names
     author_names=(${(f)"$(_call_program branchrefs git log --format='%aN' | sort -u)"})
+<<<<<<< HEAD
     __gitex_command_successful || return
+=======
+    __git_command_successful || return
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     _wanted author-names expl author-name compadd $* - $author_names
 }
 

@@ -118,7 +118,11 @@ start_options=(
 )
 logs_options=(
     '--json[json log output]'
+<<<<<<< HEAD
     '--format[formatted log output]'
+=======
+    '--format[formated log output]'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     '--raw[raw output]'
     '--err[only shows error output]'
     '--out[only shows standard output]'

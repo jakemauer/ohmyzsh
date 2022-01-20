@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 github: [ohmyzsh, robbyrussell, mcornella, larson-carter, carlosala]
+=======
+github: [ohmyzsh, robbyrussell, mcornella, larson-carter]
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 open_collective: ohmyzsh

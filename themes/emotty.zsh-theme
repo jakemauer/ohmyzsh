@@ -46,6 +46,7 @@
 # is shown (see vcs_action_glyph variable, default: chevron).
 # ------------------------------------------------------------------------------
 
+<<<<<<< HEAD
 (( ${+functions[emotty]} )) || {
   echo "error: the emotty theme requires the emotty plugin" >&2
   return 1
@@ -56,6 +57,8 @@
   return 1
 }
 
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 user_prompt="$(emotty)"
 root_prompt="$emoji[skull]"
 warn_prompt="$emoji[collision_symbol]"

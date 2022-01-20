@@ -1,5 +1,9 @@
 # python command
+<<<<<<< HEAD
 alias py='python3'
+=======
+alias py='python'
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 # Find python file
 alias pyfind='find . -name "*.py"'
@@ -44,10 +48,17 @@ function pyuserpaths() {
 alias pygrep='grep -nr --include="*.py"'
 
 # Run proper IPython regarding current virtualenv (if any)
+<<<<<<< HEAD
 alias ipython="python3 -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
 # Share local directory as a HTTP server
 alias pyserver="python3 -m http.server"
+=======
+alias ipython="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+
+# Share local directory as a HTTP server
+alias pyserver="python -m http.server"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 
 ## venv utilities

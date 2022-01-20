@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/usr/bin/env python3
+=======
+#!/usr/bin/env python
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 from __future__ import print_function
 
 import os
@@ -44,7 +48,11 @@ if po.returncode != 0:
     sys.exit(0)  # Not a git repository
 
 # collect git status information
+<<<<<<< HEAD
 untracked, staged, changed, deleted, conflicts = [], [], [], [], []
+=======
+untracked, staged, changed, conflicts = [], [], [], []
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 ahead, behind = 0, 0
 status = [(line[0], line[1], line[2:]) for line in stdout.decode('utf-8').splitlines()]
 for st in status:
@@ -75,15 +83,22 @@ for st in status:
     else:
         if st[1] == 'M':
             changed.append(st)
+<<<<<<< HEAD
         if st[1] == 'D':
             deleted.append(st)
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
         if st[0] == 'U':
             conflicts.append(st)
         elif st[0] != ' ':
             staged.append(st)
 
 stashed = get_stash()
+<<<<<<< HEAD
 if not changed and not deleted and not staged and not conflicts and not untracked:
+=======
+if not changed and not staged and not conflicts and not untracked:
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     clean = 1
 else:
     clean = 0
@@ -97,7 +112,11 @@ out = ' '.join([
     str(len(changed)),
     str(len(untracked)),
     str(stashed),
+<<<<<<< HEAD
     str(clean),
     str(len(deleted))
+=======
+    str(clean)
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 ])
 print(out, end='')

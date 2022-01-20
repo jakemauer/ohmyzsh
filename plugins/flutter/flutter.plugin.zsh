@@ -12,6 +12,7 @@ alias flrd="flutter run --debug"
 alias flrp="flutter run --profile"
 alias flrr="flutter run --release"
 alias flupgrd="flutter upgrade"
+<<<<<<< HEAD
 
 # COMPLETION FUNCTION
 if (( ! $+commands[flutter] )); then
@@ -27,3 +28,5 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_flutter" ]]; then
 fi
 
 flutter zsh-completion >| "$ZSH_CACHE_DIR/completions/_flutter" &|
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

@@ -12,7 +12,11 @@ plugins=(... python)
 
 | Command          | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |
+<<<<<<< HEAD
 | `py`             | Runs `python3`                                                                         |
+=======
+| `py`             | Runs `python`                                                                          |
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 | `ipython`        | Runs the appropriate `ipython` version according to the activated virtualenv           |
 | `pyfind`         | Finds .py files recursively in the current directory                                   |
 | `pyclean [dirs]` | Deletes byte-code and cache files from a list of directories or the current one        |

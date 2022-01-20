@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ################################################################################
 # Zsh-z - jump around with Zsh - A native Zsh version of z without awk, sort,
 # date, or sed
@@ -966,3 +967,11 @@ zsh-z_plugin_unload() {
 }
 
 # vim: fdm=indent:ts=2:et:sts=2:sw=2:
+=======
+# Handle $0 according to the standard:
+# https://zdharma-continuum.github.io/Zsh-100-Commits-Club/Zsh-Plugin-Standard.html
+0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
+0="${${(M)0:#/*}:-$PWD/$0}"
+
+source "${0:h}/z.sh"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)

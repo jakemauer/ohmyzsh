@@ -9,7 +9,10 @@
 - [ ] The code is mine or it's from somewhere with an MIT-compatible license.
 - [ ] The code is efficient, to the best of my ability, and does not waste computer resources.
 - [ ] The code is stable and I have tested it myself, to the best of my abilities.
+<<<<<<< HEAD
 - [ ] If the code introduces new aliases, I provide a valid use case for all plugin users down below.
+=======
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ## Changes:
 

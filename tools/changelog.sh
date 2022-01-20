@@ -23,7 +23,12 @@ TYPES=(
   test      "Testing"
 )
 
+<<<<<<< HEAD
 #* Types that will be displayed in their own section, in the order specified here.
+=======
+#* Types that will be displayed in their own section,
+#* in the order specified here.
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 local -a MAIN_TYPES
 MAIN_TYPES=(feat fix perf docs)
 
@@ -33,8 +38,12 @@ OTHER_TYPES=(refactor style other)
 
 #* Commit types that don't appear in $MAIN_TYPES nor $OTHER_TYPES
 #* will not be displayed and will simply be ignored.
+<<<<<<< HEAD
 local -a IGNORED_TYPES
 IGNORED_TYPES=(${${${(@k)TYPES}:|MAIN_TYPES}:|OTHER_TYPES})
+=======
+
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
 ############################
 # COMMIT PARSING UTILITIES #
@@ -139,7 +148,11 @@ function parse-commit {
   #  [BREAKING CHANGE: warning]
 
   # commits holds the commit type
+<<<<<<< HEAD
   types[$hash]="$(commit:type "$subject")"
+=======
+  commits[$hash]="$(commit:type "$subject")"
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   # scopes holds the commit scope
   scopes[$hash]="$(commit:scope "$subject")"
   # subjects holds the commit subject
@@ -164,16 +177,25 @@ function parse-commit {
 function display-release {
 
   # This function uses the following globals: output, version,
+<<<<<<< HEAD
   # types (A), subjects (A), scopes (A), breaking (A) and reverts (A).
   #
   # - output is the output format to use when formatting (raw|text|md)
   # - version is the version in which the commits are made
   # - types, subjects, scopes, breaking, and reverts are associative arrays
+=======
+  # commits (A), subjects (A), scopes (A), breaking (A) and reverts (A).
+  #
+  # - output is the output format to use when formatting (raw|text|md)
+  # - version is the version in which the commits are made
+  # - commits, subjects, scopes, breaking, and reverts are associative arrays
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   #   with commit hashes as keys
 
   # Remove commits that were reverted
   local hash rhash
   for hash rhash in ${(kv)reverts}; do
+<<<<<<< HEAD
     if (( ${+types[$rhash]} )); then
       # Remove revert commit
       unset "types[$hash]" "subjects[$hash]" "scopes[$hash]" "breaking[$hash]"
@@ -190,6 +212,18 @@ function display-release {
 
   # If no commits left skip displaying the release
   if (( $#types == 0 )); then
+=======
+    if (( ${+commits[$rhash]} )); then
+      # Remove revert commit
+      unset "commits[$hash]" "subjects[$hash]" "scopes[$hash]" "breaking[$hash]"
+      # Remove reverted commit
+      unset "commits[$rhash]" "subjects[$rhash]" "scopes[$rhash]" "breaking[$rhash]"
+    fi
+  done
+
+  # If no commits left skip displaying the release
+  if (( $#commits == 0 )); then
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     return
   fi
 
@@ -209,7 +243,11 @@ function display-release {
     case "$output" in
     raw) printf '%s' "$hash" ;;
     text) printf '\e[33m%s\e[0m' "$hash" ;; # red
+<<<<<<< HEAD
     md) printf '[`%s`](https://github.com/ohmyzsh/ohmyzsh/commit/%s)' "$hash" "$hash" ;;
+=======
+    md) printf '[`%s`](https://github.com/ohmyzsh/ohmyzsh/commit/%s)' "$hash" ;;
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
     esac
   }
 
@@ -319,7 +357,11 @@ function display-release {
     local hash type="$1"
 
     local -a hashes
+<<<<<<< HEAD
     hashes=(${(k)types[(R)$type]})
+=======
+    hashes=(${(k)commits[(R)$type]})
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
     # If no commits found of type $type, go to next type
     (( $#hashes != 0 )) || return 0
@@ -336,7 +378,11 @@ function display-release {
 
     # Commits made under types considered other changes
     local -A changes
+<<<<<<< HEAD
     changes=(${(kv)types[(R)${(j:|:)OTHER_TYPES}]})
+=======
+    changes=(${(kv)commits[(R)${(j:|:)OTHER_TYPES}]})
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
 
     # If no commits found under "other" types, don't display anything
     (( $#changes != 0 )) || return 0
@@ -394,7 +440,11 @@ function main {
   fi
 
   # Commit classification arrays
+<<<<<<< HEAD
   local -A types subjects scopes breaking reverts
+=======
+  local -A commits subjects scopes breaking reverts
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
   local truncate=0 read_commits=0
   local version tag
   local hash refs subject body
@@ -447,7 +497,11 @@ function main {
       # Output previous release
       display-release
       # Reinitialize commit storage
+<<<<<<< HEAD
       types=()
+=======
+      commits=()
+>>>>>>> 16344a98 (Merge branch 'ohmyzsh:master' into master)
       subjects=()
       scopes=()
       breaking=()
