@@ -8,12 +8,12 @@
 
 function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '±' && return
-    echo '○'
+    echo '\u2234'
 }
 
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
+# function virtualenv_info {
+#     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+# }
 
 function prompt_ruby_version {
     ruby -v | sed 's/(.*//'
@@ -22,7 +22,7 @@ function prompt_ruby_version {
 
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
-$(virtualenv_info)$(prompt_char) '
+$(prompt_char) '
 
     ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
     ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
